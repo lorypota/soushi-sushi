@@ -1,0 +1,78 @@
+spring roll,3,"Variety of filled, rolled appetizers.",1,0
+shrimp roll,4.5,"Variety of filled, rolled appetizers.",1,0
+dumplings,4,Dumplings filled with vegetables and wrapped in a thin dough.,1,0
+shrimp dumplings,4.5,"Dumplings filled with shrimp and vegetables, wrapped in a thin dough.",1,0
+shao mai,4.5,Steamed pork dumplings.,1,0
+steamed bread,3,Bread of all kinds!,1,0
+fried bread,3,Bread of all kinds!,1,0
+salmon tartare,8,Tartare of salmon.,1,0
+tartar tris,10,Tris for the win!,1,0
+sashimi salad,8,"Salad made of fish and lettuce, tasty and raccomended!",1,0
+surimi salad,6,"Salad made of fish and lettuce, tasty and raccomended!",1,0
+octopus salad,7,"Salad made of fish and lettuce, tasty and raccomended!",1,0
+miso soup,3.25,Typical Japanese soup.,1,0
+spicy miso soup,3,Typical Japanese soup.,1,0
+shrimp and pineapple rice,4,"Rice, pinapple and shrimp, a tris to dare and enjoy!",1,0
+vegetables rice,3,Rice and vegetables yum!,1,0
+ramen with vegetables,4,Ramen is a Japanese noodle soup.,1,0
+ramen with fish,5,Ramen is a Japanese noodle soup.,1,0
+ramen,5,Ramen is a Japanese noodle soup.,1,0
+cooked shrimp,8,Cooked shrimp yum!,1,0
+spicy ramen,5.5,Ramen is a Japanese noodle soup.,1,0
+shrimp skewers,8,Tasty and convenient skewers.,1,0
+tuna skewers,8,Tasty and convenient skewers.,1,0
+cooked salmon,8,Just cooked salmon.,1,0
+tempura vegetables,4.5,Vegetables fried in the typical Japanese tempura.,1,0
+tempura shrimp,9,Fish fried in the typical Japanese tempura.,1,0
+tempura mixed fish,12,Fish fried in the typical Japanese tempura.,1,0
+french fries,3.75,Just regular french fries but fried in tempura.,1,0
+hosomaki salmon,3,"Small roll of seaweed, rice and the filling.",0,0
+hosomaki tuna,6,"Small roll of seaweed, rice and the filling.",0,0
+hosomaki california,4.5,"Small roll of seaweed, rice and the filling.",0,0
+hosomaki cooked shrimp,5,"Small roll of seaweed, rice and the filling.",0,0
+hosomaki fried shrimp,5,"Small roll of seaweed, rice and the filling.",0,0
+hosomaki avocado,4.5,"Small roll of seaweed, rice and the filling.",1,0
+hosomaki eel,7,"Small roll of seaweed, rice and the filling.",0,0
+hosomaki special,8,"Small roll of seaweed, rice and the filling.",1,0
+temaki tuna avocado mayo,5,Cone of seaweed with rice and filling.,0,0
+temaki salmon avocado mayo,5,Cone of seaweed with rice and filling.,0,0
+temaki spicy salmon mayo,6,Cone of seaweed with rice and filling.,0,0
+temaki spicy tuna mayo,6,Cone of seaweed with rice and filling.,0,0
+temaki shrimp fried mayo,5,Cone of seaweed with rice and filling.,0,0
+temaki avocado,4,Cone of seaweed with rice and filling.,1,0
+futomaki mix,13,Large roll of seaweed and rice plus the filling.,0,0
+fried maki,12,Filling and rice inside of seaweed.,0,0
+futomaki salmon,10,Rice and fillings wrapped in seaweed.,0,0
+uramaki salmon,5,Sushi roll with the rice outside of the seaweed.,0,0
+uramaki california,8,Sushi roll with the rice outside of the seaweed.,0,0
+uramaki tuna,10,Sushi roll with the rice outside of the seaweed.,0,0
+uramaki shrimp tuna,8,Sushi roll with the rice outside of the seaweed.,0,0
+super roll,12,A classic sushi type which consists of a roll of seaweed and rice plus the filling.,0,0
+rainbow roll,13,A classic sushi type which consists of a roll of seaweed and rice plus the filling.,0,0
+tiger roll,12,A classic sushi type which consists of a roll of seaweed and rice plus the filling.,0,0
+mango roll,13,A classic sushi type which consists of a roll of seaweed and rice plus the filling.,1,0
+chirashi salmon,12,A classic sushi type which consists of a roll of seaweed and rice plus the filling.,0,0
+chirashi fish mix,12,A classic sushi type which consists of a roll of seaweed and rice plus the filling.,0,0
+chirashi soushi,14,A classic sushi type which consists of a roll of seaweed and rice plus the filling.,0,0
+sushi mix,8,A mix of our top choices.,0,0
+nigiri eel,5,A small block of rice topped with  a thin slice of fish held together by a thin band of seaweed.,0,0
+nigiri mango,3,A small block of rice topped with  a thin slice of fish held together by a thin band of seaweed.,1,0
+nigiri salmon,3,A small block of rice topped with  a thin slice of fish held together by a thin band of seaweed.,0,0
+nigiri tuna,4,A small block of rice topped with  a thin slice of fish held together by a thin band of seaweed.,0,0
+gunkan philadelphia,4,Sushi shaped like a little boat.,0,0
+gunkan spicy salmon,4,Sushi shaped like a little boat.,0,0
+gunkan spicy tuna,4.25,Sushi shaped like a little boat.,0,0
+sashimi mix,15,A Japanese delicacy consisting of fresh raw fish or meat sliced into thin pieces and often eaten with soy sauce.,0,0
+sashimi salmon,13,A Japanese delicacy consisting of fresh raw fish or meat sliced into thin pieces and often eaten with soy sauce.,0,0
+soy sauce,0.5,Just soy sauce.,1,0
+wasabi,0.5,Spice traditionally prepared from a plant from the cabbage family. Widely used in the Japanese cuisine.,1,0
+green tea,3,Traditional tea of Japanese cuisine.,0,1
+Japanese tea,2,Traditional tea of Japanese cuisine.,0,1
+Hatakosen ramune soda,2,"A fun, bubbly Japanese classic.",0,1
+Hatakosen Pineapple Soda,2,"A fun, bubbly Japanese classic.",0,1
+Otsuka Oronamin C Energy Drink,5,"An energy drink comparable to Red Bull, Oronamin has a sweet citrus-y flavour and contains Vitamins B2, B6 and C.",0,1
+Sangaria Melon Soda,3.25,A fruity sweet Japanese favourite.,0,1
+Suntory C.C. Lemon Soda,4,A Japanese soft drink favourite.,0,1
+Fremo Mango Aloe Vera Drink,2,What is summer without the taste of mango forever lingering in your mouth?,0,1
+Otsuka Pocari Sweat Ion,2,Sweat with the best of them with this famous Japanese isotonic drink.,0,1
+Tarami White and Golden Peach,4,Thirst quenching konjac jelly equipped with the juicy goodness of white & golden peach.,0,1

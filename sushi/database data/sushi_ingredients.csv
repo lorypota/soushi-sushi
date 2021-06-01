@@ -1,0 +1,266 @@
+spring roll,rice
+spring roll,lettuce
+spring roll,cabbage
+spring roll,carrot
+spring roll,cucumber
+spring roll,jalapeno
+spring roll,onion
+shrimp roll,rice
+shrimp roll,lettuce
+shrimp roll,cabbage
+shrimp roll,carrot
+shrimp roll,cucumber
+shrimp roll,jalapeno
+shrimp roll,onion
+shrimp roll,raw shrimp
+dumplings,cabbage
+dumplings,onion
+dumplings,soy sauce
+dumplings,carrot
+shrimp dumplings,raw shrimp
+shrimp dumplings,cabbage
+shrimp dumplings,onion
+shrimp dumplings,soy sauce
+shrimp dumplings,carrot
+shao mai,raw shrimp
+shao mai,soy sauce
+shao mai,rice
+steamed bread,flour
+steamed bread,egg
+fried bread,flour
+fried bread,egg
+fried bread,tempura
+salmon tartare,raw salmon
+tartar tris,raw salmon
+tartar tris,raw shrimp
+tartar tris,raw tuna
+sashimi salad,raw salmon
+sashimi salad,raw tuna
+sashimi salad,lettuce
+surimi salad,surimi
+surimi salad,lettuce
+octopus salad,lettuce
+octopus salad,raw octopus
+miso soup,miso
+spicy miso soup,miso
+spicy miso soup,spicy sauce
+shrimp and pineapple rice,rice
+shrimp and pineapple rice,raw shrimp
+shrimp and pineapple rice,pineapple
+vegetables rice,seasame seeds
+vegetables rice,cucumber
+vegetables rice,avocado
+vegetables rice,asparagus
+vegetables rice,onion
+vegetables rice,carrot
+vegetables rice,lettuce
+vegetables rice,radish
+vegetables rice,rice
+ramen with vegetables,noodles
+ramen with vegetables,egg
+ramen with vegetables,seasame seeds
+ramen with vegetables,cucumber
+ramen with vegetables,avocado
+ramen with vegetables,asparagus
+ramen with vegetables,onion
+ramen with vegetables,carrot
+ramen with vegetables,lettuce
+ramen with vegetables,radish
+ramen with fish,noodles
+ramen with fish,egg
+ramen with fish,seasame seeds
+ramen with fish,cucumber
+ramen with fish,avocado
+ramen with fish,asparagus
+ramen with fish,onion
+ramen with fish,carrot
+ramen with fish,lettuce
+ramen with fish,radish
+ramen with fish,rice
+ramen with fish,cooked salmon
+ramen with fish,cooked tuna
+ramen,noodles
+ramen,egg
+ramen,soy sauce
+cooked shrimp,cooked shrimp
+spicy ramen,egg
+spicy ramen,soy sauce
+spicy ramen,spicy sauce
+shrimp skewers,cooked shrimp
+tuna skewers,cooked tuna
+cooked salmon,cooked salmon
+tempura vegetables,tempura
+tempura vegetables,seasame seeds
+tempura vegetables,cucumber
+tempura vegetables,avocado
+tempura vegetables,asparagus
+tempura vegetables,onion
+tempura vegetables,carrot
+tempura vegetables,lettuce
+tempura vegetables,radish
+tempura shrimp,cooked shrimp
+tempura shrimp,tempura
+tempura mixed fish,tempura
+tempura mixed fish,cooked shrimp
+tempura mixed fish,cooked tuna
+tempura mixed fish,cooked squid
+tempura mixed fish,cooked octopus
+tempura mixed fish,cooked eel
+french fries,sweet potatoes
+french fries,tempura
+wasabi,wasabi
+soy sauce,soy sauce
+hosomaki salmon,seaweed wrapper
+hosomaki salmon,rice
+hosomaki salmon,raw salmon
+hosomaki tuna,seaweed wrapper
+hosomaki tuna,rice
+hosomaki tuna,raw tuna
+hosomaki california,seaweed wrapper
+hosomaki california,rice
+hosomaki california,raw salmon
+hosomaki california,philadelphia
+hosomaki cooked shrimp,seaweed wrapper
+hosomaki cooked shrimp,rice
+hosomaki cooked shrimp,cooked shrimp
+hosomaki fried shrimp,seaweed wrapper
+hosomaki fried shrimp,rice
+hosomaki fried shrimp,cooked shrimp
+hosomaki fried shrimp,tempura
+hosomaki avocado,seaweed wrapper
+hosomaki avocado,rice
+hosomaki avocado,avocado
+hosomaki eel,seaweed wrapper
+hosomaki eel,rice
+hosomaki eel,raw eel
+hosomaki special,seaweed wrapper
+hosomaki special,rice
+hosomaki special,spicy sauce
+hosomaki special,mayonnaise
+hosomaki special,mango
+hosomaki special,raw salmon
+temaki tuna avocado mayo,seaweed wrapper
+temaki tuna avocado mayo,rice
+temaki tuna avocado mayo,raw tuna
+temaki tuna avocado mayo,avocado
+temaki tuna avocado mayo,mayonnaise
+temaki salmon avocado mayo,seaweed wrapper
+temaki salmon avocado mayo,rice
+temaki salmon avocado mayo,raw salmon
+temaki salmon avocado mayo,avocado
+temaki salmon avocado mayo,mayonnaise
+temaki spicy salmon mayo,seaweed wrapper
+temaki spicy salmon mayo,rice
+temaki spicy salmon mayo,raw salmon
+temaki spicy salmon mayo,spicy sauce
+temaki spicy salmon mayo,mayonnaise
+temaki spicy tuna mayo,seaweed wrapper
+temaki spicy tuna mayo,rice
+temaki spicy tuna mayo,raw tuna
+temaki spicy tuna mayo,spicy sauce
+temaki spicy tuna mayo,mayonnaise
+temaki shrimp fried mayo,seaweed wrapper
+temaki shrimp fried mayo,rice
+temaki shrimp fried mayo,raw shrimp
+temaki shrimp fried mayo,tempura
+temaki shrimp fried mayo,mayonnaise
+temaki avocado,seaweed wrapper
+temaki avocado,rice
+temaki avocado,avocado
+futomaki mix,seaweed wrapper
+futomaki mix,rice
+futomaki mix,raw shrimp
+futomaki mix,raw salmon
+futomaki mix,raw tuna
+fried maki,seaweed wrapper
+fried maki,rice
+fried maki,raw shrimp
+fried maki,raw salmon
+fried maki,raw tuna
+fried maki,tempura
+futomaki salmon,rice
+futomaki salmon,raw shrimp
+futomaki salmon,raw salmon
+uramaki salmon,rice
+uramaki salmon,seaweed wrapper
+uramaki salmon,raw salmon
+uramaki california,rice
+uramaki california,seaweed wrapper
+uramaki california,raw salmon
+uramaki california,mayonnaise
+uramaki tuna,rice
+uramaki tuna,seaweed wrapper
+uramaki tuna,raw tuna
+uramaki shrimp tuna,rice
+uramaki shrimp tuna,seaweed wrapper
+uramaki shrimp tuna,raw shrimp
+uramaki shrimp tuna,raw tuna
+super roll,seaweed wrapper
+super roll,rice
+super roll,raw shrimp
+super roll,raw salmon
+super roll,raw tuna
+super roll,tempura
+rainbow roll,mango
+rainbow roll,rice
+rainbow roll,seaweed wrapper
+rainbow roll,raw tuna
+rainbow roll,raw salmon
+tiger roll,apple
+tiger roll,rice
+tiger roll,seaweed wrapper
+tiger roll,raw tuna
+tiger roll,raw salmon
+mango roll,mango
+mango roll,rice
+mango roll,seaweed wrapper
+mango roll,raw salmon
+chirashi salmon,rice
+chirashi salmon,raw salmon
+chirashi fish mix,rice
+chirashi fish mix,raw shrimp
+chirashi fish mix,raw salmon
+chirashi fish mix,raw tuna
+chirashi soushi,rice
+chirashi soushi,raw shrimp
+chirashi soushi,raw salmon
+chirashi soushi,raw tuna
+chirashi soushi,spicy sauce
+chirashi soushi,mayonnaise
+chirashi soushi,mango
+chirashi soushi,avocado
+sushi mix,seaweed wrapper
+sushi mix,rice
+sushi mix,raw shrimp
+sushi mix,raw salmon
+sushi mix,raw tuna
+sushi mix,spicy sauce
+sushi mix,mayonnaise
+sushi mix,mango
+sushi mix,avocado
+nigiri eel,rice
+nigiri eel,raw eel
+nigiri mango,rice
+nigiri mango,mango
+nigiri salmon,rice
+nigiri salmon,raw salmon
+nigiri tuna,rice
+nigiri tuna,raw tuna
+gunkan philadelphia,rice
+gunkan philadelphia,philadelphia
+gunkan philadelphia,tobiko
+gunkan philadelphia,raw salmon
+gunkan spicy salmon,rice
+gunkan spicy salmon,philadelphia
+gunkan spicy salmon,tobiko
+gunkan spicy salmon,raw salmon
+gunkan spicy salmon,spicy sauce
+gunkan spicy tuna,rice
+gunkan spicy tuna,philadelphia
+gunkan spicy tuna,tobiko
+gunkan spicy tuna,raw tuna
+gunkan spicy tuna,spicy sauce
+sashimi mix,raw salmon
+sashimi mix,raw tuna
+sashimi mix,raw shrimp
+sashimi salmon,raw salmon

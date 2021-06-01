@@ -1,0 +1,517 @@
+/* Everything*/
+.container:after,.container:before,.row-padding:after,.row-padding:before{content:"";display:table;clear:both}
+.container{padding:0.01em 16px}
+.card{box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)}
+
+/* Elements */
+html{box-sizing:border-box}*{box-sizing:inherit}
+body{margin:0;overflow: visible;}
+html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}
+h1,h2,h3,h4,h5,h6{font-family:"Segoe UI",Arial,sans-serif;font-weight:400;margin:10px 0}
+a{color:inherit;text-decoration: none;}
+
+/* Font sizes*/
+h1{font-size:36px}
+h2{font-size:30px}
+h3{font-size:24px}
+h4{font-size:20px}
+h5{font-size:18px}
+h6{font-size:16px}
+.tiny{font-size:10px}
+.small{font-size:12px}
+.medium{font-size:15px}
+.large{font-size:18px}
+.xlarge{font-size:24px}
+.xxlarge{font-size:36px}
+.xxxlarge{font-size:48px}
+.jumbo{font-size:64px}
+
+/* Text alignment*/
+.text-left-align{text-align:left}
+.text-right-align{text-align:right}
+.text-justify{text-align:justify}
+.text-center{text-align:center}
+
+/* Alignment */
+.left-align{float: left}
+.right-align{float: right}
+.vertical-align-top{vertical-align:top}
+.vertical-align-middle{vertical-align:middle}
+.vertical-align-bottom{vertical-align:bottom}
+
+/* Margin */
+.margin{margin:16px} 
+.margin-top{margin-top:16px}
+.margin-bottom{margin-bottom:16px}
+.margin-left{margin-left:16px}
+.margin-right{margin-right:16px}
+
+/* Top bar */
+#top {position:fixed;width:100%;z-index:1;top:0;display:block;}
+.bar {width:auto;display:inline-block;display:block;position:static;}
+.bar-item {width:auto;display:block;text-align:left;}
+.button-topmenu {display:inline-block;padding:20px 10px;vertical-align:middle;text-decoration:none;text-align:center;font:inherit;white-space:normal;height: 100%;position:relative;font-size: 17px;}
+.bar-img{display:inline-block;text-align:left;}
+
+/* 3 Categories menu */
+.third{float:left;width:33.3%}
+
+/* 2 Categories who are we*/
+.percent-40{float: left;width: 40%;}
+.percent-60{float: left;width: 60%;}
+
+/* Quality */
+.half{float:left;width:50%}
+.percent-35{float:left;width:35%}
+.percent-45{float:left;width:45%}
+.percent-20{float:left;width:20%}
+
+/* 2 Categories map */
+.one-quarter-map{float: left;width: 20%;}
+.three-quarter-map{float: left;width: 80%;}
+
+/* Buttons */
+button{font:inherit;margin:0;overflow:visible;text-transform:none}
+.btn,.button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+.btn:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)} 
+.button:hover{color:#000;background-color:#ccc}
+
+/* Padding */
+.padding-small{padding:4px 8px}
+.padding{padding:8px 16px}
+.padding-large{padding:12px 24px}
+.padding-16{padding-top:16px;padding-bottom:16px}
+.padding-24{padding-top:24px;padding-bottom:24px}
+.padding-32{padding-top:32px;padding-bottom:32px}
+.padding-48{padding-top:48px;padding-bottom:48px}
+.padding-64{padding-top:64px;padding-bottom:64px}
+.padding-top-64{padding-top:64px}
+.padding-top-48{padding-top:48px}
+.padding-top-32{padding-top:32px}
+.padding-top-24{padding-top:24px}
+.row-padding,.third{padding:0 10px}
+.padding-header{padding-top:80px;padding-bottom:20px}
+.padding-whole-menu{padding-left:20px;padding-right: 20px;}
+.padding-32-side{padding-left: 32px;padding-right: 32px;}
+.padding-lr120{padding-left:120px;padding-right:120px}
+.padding-tb5{padding-top: 5px;padding-bottom: 5px;}
+
+/* Footer */
+.footer {position: fixed;left: 0;bottom: 0;width: 100%;}
+.a-underlined:hover{text-decoration: underline;}
+
+/* Animations */
+.animate-top{position:relative;animation:animatetop 0.4s}@keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}
+.animate-left{position:relative;animation:animateleft 0.4s}@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
+.animate-right{position:relative;animation:animateright 0.4s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
+.animate-bottom{position:relative;animation:animatebottom 0.4s}@keyframes animatebottom{from{bottom:-300px;opacity:0} to{bottom:0;opacity:1}}
+
+/* Colors */
+.brown {color:#FFFBEE; background-color:#C77C74 }
+.orange {color:#FFFBEE;background-color: #FB9353}
+.white {color:#755B62; background-color:#FFFBEE}
+.red {color:#FFFBEE;background-color: #FF435F}
+.dark-red {color:#FFFBEE;background-color: #CC3B5A}
+.dark-red-bar {color:#CC3B5A;background-color: #FFFBEE}
+.hover-light-brown:hover{color:#b2967d;background-color:#FFFBEE}
+.background-black{background: #4E3C41}
+.color-black{color: #4E3C41}
+.background-white{background: #fff}
+.text-white{color:#fff}
+.text-black{color:#000}
+.text-brown{color:#4E3C41}
+
+/* Buttons animation */
+.learn-more {width: 12rem;height: auto;position: relative;display: inline-block;cursor: pointer;outline: none;border: 0;vertical-align: middle;text-decoration: none;background: transparent;padding: 0;font-size: inherit;font-family: inherit;}
+.circle {transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);position: relative;display: block;margin: 0;width: 3rem;height: 3rem;border-radius: 1.625rem;}
+.icon {transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);position: absolute;top: 0;bottom: 0;margin: auto;}
+.arrow {transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);left: 0.625rem;width: 1.125rem;height: 0.125rem;background: none;}
+.arrow::before {position: absolute;content: '';top: -0.25rem;right: 0.0625rem;width: 0.625rem;height: 0.625rem;border-top: 0.125rem solid #fff;border-right: 0.125rem solid #fff;transform: rotate(45deg);}
+.button-text {transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);position: absolute;top: 0;left: 0;right: 0;bottom: 0;padding: 0.75rem 0;margin: 0 0 0 1.85rem;font-weight: 700;line-height: 1.6;text-align: center;}
+button:hover .circle {width: 100%;}
+button:hover .arrow {background: #fff;transform: translate(1rem, 0);}
+button:hover .button-text {color: #fff;}
+
+/* Whole menu - scrolling image */
+.container-menu {
+  overflow: hidden;
+}
+  
+.sliding-background {
+  background: url("whole-menu-scroll.png") repeat-x;
+  height: 150px;
+  width: 25000px;
+  animation: slide 30s linear infinite;
+}
+
+@keyframes slide{
+  0%{
+    transform: translate3d(0, 0, 0);
+  }
+  100%{
+    transform: translate3d(-5925px, 0, 0);
+  }
+}
+
+
+/* Go back to top button */
+#arrowUp {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  height: 40px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: rgba(75, 73, 73, 0.6);
+  color: #CC3B5A;
+  cursor: pointer;
+  padding: 10px;
+  padding-bottom: 4px;
+  border-radius: 4px;
+}
+
+#arrowUp:hover {
+  background-color: rgba(75, 73, 73, 0.8);
+}
+
+/* Resizing images */
+.clickable {
+  cursor:pointer;
+}
+
+.clickable-image {
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  pointer-events: all;
+}
+
+.clickable-image:hover {
+  border-radius: 80%;
+  transform: rotate(10deg);
+  transform: skewY(10deg);
+}
+
+#modal-img-zoom {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.92);
+  user-select: none;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+}
+
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: white;
+  padding: 35px 0;
+  height: 150px;
+  font-size: 30px;
+}
+
+.modal-content, #caption {
+  animation: opac 2s;
+}
+
+@keyframes opac{
+  from{
+    opacity:0
+  }
+  to{
+    opacity:1
+  }
+}
+
+.modal-button {
+  position: absolute;
+  font-size: 40px; 
+  color: #f1f1f1;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.display-left{
+  position:absolute;top:50%;left:0%;
+}
+
+.display-right{
+  position:absolute;top:50%;right:0%;
+}
+
+.hover-text-red:hover{
+  color:#CC3B5A;
+}
+
+/* Register button */
+.animated-register {
+	color: black;
+	cursor: pointer;
+	position: relative;
+	border: 0px;
+	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+  z-index: 1;
+  display: block;
+  background: #DD7C91;
+}
+
+.animated-register:hover {
+	color: #5A1A28;
+  background: #DD7C91;
+  box-shadow: 1px 1px 5px #555;
+}
+
+.animated-register:hover:before {
+	left: 0%;
+	right: auto;
+	width: 100%;
+}
+
+.animated-register:before {
+	display: block;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+	width: 0px;
+	z-index: -1;
+	content: '';
+	color: #5A1A28;
+	background: #CC3B5A;
+	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+/* button once user is logged in*/
+.button-account {
+	color: white;
+	cursor: pointer;
+	position: relative;
+	border: 0px;
+  z-index: 1;
+  display: block;
+  background: transparent;
+}
+
+#account{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.account-content{
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 5px;
+  padding: 25px;
+}
+
+.account-button{
+  background: #CC3B5A;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 200;
+  cursor: pointer;
+  margin-left: 38%;
+  border-radius: 5px;
+}
+
+.account-button:hover {
+  box-shadow: 1px 1px 5px #555;
+}
+
+.account-button:active {
+  box-shadow: 1px 1px 7px #222;
+}
+
+/* Popup */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+  margin: auto; 
+  padding: 50px;
+}
+
+/* Login/Register form */
+.login-wrap {
+  position: relative;
+  margin: 0 auto;
+  background: #ecf0f1;
+  width: 350px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px #333;
+  padding: 15px;
+  user-select: none;
+}
+
+#registerButton:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.close-x:hover{
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.register-wrap{
+  position: relative;
+  margin: 0 auto;
+  background: #ecf0f1;
+  width: 350px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px #333;
+  padding: 15px;
+  user-select: none;
+}
+
+.login-wrap h2,.register-wrap h2{
+  text-align: center;
+  font-weight: 200;
+  font-size: 2em;
+  margin-top: 10px;
+  color: #34495e;
+}
+
+.login-wrap .form ,.register-wrap .form{
+  padding-top: 20px;
+}
+
+.login-wrap .form input[type="text"], .login-wrap .form input[type="password"], .login-wrap .form button ,.register-wrap .form input[type="text"], .register-wrap .form input[type="password"], .register-wrap .form button{
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 25px;
+  height: 40px;
+  border-radius: 5px;
+  outline: 0;
+}
+
+.login-wrap .form input[type="text"], .login-wrap .form input[type="password"],.register-wrap .form input[type="text"], .register-wrap .form input[type="password"]{
+  border: 1px solid #bbb;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+}
+
+.login-wrap .form input[type="text"]:focus, .login-wrap .form input[type="password"]:focus, .register-wrap .form input[type="text"]:focus, .register-wrap .form input[type="password"]:focus{
+  border: 1px solid #3498db;
+}
+
+.login-wrap .form a,.register-wrap .form a{
+  text-align: center;
+  font-size: 10px;
+  color: #3498db;
+  padding-bottom: 10px;
+}
+
+.login-wrap .form p,.register-wrap  .form p{
+  padding-bottom: 10px;
+}
+
+.login-wrap .form button,.register-wrap .form button{
+  background: #CC3B5A;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+.login-wrap .form button:hover,.register-wrap .form button:hover {
+  box-shadow: 1px 1px 5px #555;
+}
+
+.login-wrap .form button:active,.register-wrap .form button:active {
+  box-shadow: 1px 1px 7px #222;
+}
+
+
+/* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+/* Random popup */
+#random {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.random-content{
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 5px;
+  padding: 25px;
+}
+
+.random-style{
+  text-align: center;
+  margin-top: 10px;
+}
