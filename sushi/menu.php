@@ -138,71 +138,148 @@
       echo "<h2>$num dishes or drinks available!</h2> ";  //Shows number of dishes
     ?>
 
-    Order by: 
-    <select name="order">
-      <option value="all">Show all</option>
-      <option value="sushi">Sushi</option>
-      <option value="specialties">Specialties</option>
-      <option value="drinks">Drinks</option>
-    </select>
+    <form action="menu.php" method="get">
+      Order by: 
+      <select name="order">
+        <option value="all">Show all</option>
+        <option value="sushi">Sushi</option>
+        <option value="specialties">Specialties</option>
+        <option value="drinks">Drinks</option>
+      </select>
 
-    <br><br>
-    <table class="background-red">
-    <td class="padding-lrtb32 text-center"><h3><b>Sushi name</b></h3></td> <td class="padding-lrtb32"><h3><b>Description</b></h3></td> <td class="padding-lrtb32 text-center"><h3><b>Price</b></h3></td>
+      Number of table rows: 
+      <input type="text" name="elements_number" value="20" style="width: 30px;"></input>
+      <input type="image" src="images/random/search.png" width="15px" height="15px" class="search" alt="Submit">
+    </form>
 
-    <?php
+    <div style="width:98%; margin:1%;">
 
-      $count = 0;
-      
-      if ($result->num_rows > 0)
-      {
-        // output data of each row
-        while($row = $result->fetch_assoc())
-        {
-          $count++;
-          $page_number = ceil($count/10);
+        <?php
 
-          if($count==0)
+          $count = 0;
+          $elements_number = 20;
+          
+          if ($result->num_rows > 0)
           {
-            echo "<div id=\"page".$page_number."\" class=\"padding-64\">";
-          }
-
-          $sushi_name = $row['sushi_name'];
-          $description = $row['description'];
-          $price = $row['price'];
-          $is_special = $row['is_special'];
-          $is_drink = $row['is_drink'];
-          echo "<tr class=\"\"><td class=\"text-center padding-lrtb32\">$sushi_name</td> <td class=\"padding-lrtb32\">$description</td> <td class=\"text-center padding-lrtb32\">$$price</td>";
-
-          if($count%10 == 0 or $count == $num)
-          {
-            echo "</div>";
-
-            if($count!=$num)
+            // output data of each row
+            while($row = $result->fetch_assoc())
             {
-              echo "<div id=\"page".$page_number."\" class=\"padding-64\">";
+
+              $sushi_name = $row['sushi_name'];
+              $description = $row['description'];
+              $price = $row['price'];
+              $is_special = $row['is_special'];
+              $is_drink = $row['is_drink'];
+
+              $page_number = ceil($count/$elements_number);
+              $page_number2 = $page_number+1;
+              $count++;
+
+              if($count-1 == 0 || ($count-1)%$elements_number == 0)
+              {
+                echo "<table class=\"table-style page".$page_number2."\">
+                      <thead>
+                        <tr>
+                          <th>Sushi name</th>
+                          <th>Description</th>
+                          <th>Price</th>
+                        </tr>
+                      </thead>
+                      <tbody>";
+              }
+
+              echo "<tr>
+                      <td>$sushi_name</td>
+                      <td>$description</td>
+                      <td>$$price</td>
+                    </tr>";
+
+              if($count == $num || $count%$elements_number == 0)
+              {
+                echo "</tbody>
+                      </table>";
+              }
             }
           }
-        }
-      }
-      else
-      {
-          die('Error during the retrieval of data!');
-      }
+          else
+          {
+              die('Error during the retrieval of data!');
+          }
 
-      $selected_page = 1;
+        ?>
 
-      echo "</table>";
+      <?php
 
-      echo "<button onclick=\"$selected_page=$selected_page-1\"> ❮ </button>";
-      
-      $num_pages = ceil(80/10);
-      echo $selected_page;
+      echo "<style>
+            .page1 {display: block}
+            ";
+            for($i=2; $i<=ceil($num/$elements_number); $i++)
+            {
+              echo ".page".$i." {display: none}";
+            }
+      echo "</style>
+            <script>
 
-      echo "<button onclick=\"$selected_page=$selected_page+1\"> ❯ </button>";
-    
-    ?>
-    
+              var selectedPage = 1;
+              var num_pages = ".$page_number.";
+              var page;
+
+              function incrementPage()
+              {
+                  page = document.getElementsByClassName('page'+selectedPage);
+                  for(i=0;i<page.length;i++)
+                  {
+                    page[i].style.display=\"none\";
+                  }
+
+                  var value = parseInt(document.getElementById('pageNumber').value, 10);
+                  if(selectedPage!=num_pages)
+                  {
+                    selectedPage++;
+                    document.getElementById('pageNumber').value = selectedPage;
+                  }
+
+                  page = document.getElementsByClassName('page'+selectedPage);
+                  for(i=0;i<page.length;i++)
+                  {
+                    page[i].style.display=\"block\";
+                  }
+              }
+
+              function decrementPage()
+              {
+                  page = document.getElementsByClassName('page'+selectedPage);
+                  for(i=0;i<page.length;i++)
+                  {
+                    page[i].style.display=\"none\";
+                  }
+
+                  var value = parseInt(document.getElementById('pageNumber').value, 10);
+                  if(selectedPage!=1)
+                  {
+                    selectedPage--;
+                    document.getElementById('pageNumber').value = selectedPage;
+                  }
+
+                  page = document.getElementsByClassName('page'+selectedPage);
+                  for(i=0;i<page.length;i++)
+                  {
+                    page[i].style.display=\"block\";
+                  }
+              }
+
+            </script>
+            
+            <button onclick=\"decrementPage()\"> ❮ </button>
+
+            <input type=\"text\" id=\"pageNumber\" value=\"1\" class=\"text-center\" style=\"width: 10px; border: none;\" readonly></input>
+            
+            <button onclick=\"incrementPage()\"> ❯ </button>
+            
+          ";
+      ?>
+
+    </div>
   </div>
 </div>
 <!-- Footer -->

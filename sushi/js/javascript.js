@@ -53,12 +53,15 @@ function startModalImg()
     var x = document.getElementById("modal-close");
 
     //Closes the modal when x is clicked
-    x.onclick = function()
-    { 
-        modal.style.display = "none"; //Hides the modal that shows the image
-        if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
-            arrowUp.style.display = "block"; //Shows the arrow to go to the top of the page
-        body.style.overflow = "visible"; //Sets overflow of the page to visible to allow scrolling      
+    if(x!=null)
+    {
+        x.onclick = function()
+        { 
+            modal.style.display = "none"; //Hides the modal that shows the image
+            if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
+                arrowUp.style.display = "block"; //Shows the arrow to go to the top of the page
+            body.style.overflow = "visible"; //Sets overflow of the page to visible to allow scrolling      
+        }
     }
 }
 
@@ -182,4 +185,3 @@ if(spanAccount != null)
         body.style.overflow = "visible"; //Sets overflow of the page to visible to allow scrolling
     }
 }
-

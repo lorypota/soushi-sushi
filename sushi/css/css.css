@@ -1,58 +1,56 @@
-/* Everything*/
+/*#region containers*/
 .container:after,.container:before,.row-padding:after,.row-padding:before{content:"";display:table;clear:both}
 .container{padding:0.01em 16px}
 .card{box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)}
+/*#endregion containers*/
 
-/* Elements */
+/*#region elements*/
 html{box-sizing:border-box}*{box-sizing:inherit}
 body{margin:0;overflow: visible;}
 html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}
 h1,h2,h3,h4,h5,h6{font-family:"Segoe UI",Arial,sans-serif;font-weight:400;margin:10px 0}
 a{color:inherit;text-decoration: none;}
+button{font:inherit;margin:0;overflow:visible;text-transform:none}
+/*#endregion elements*/
 
-/* Font sizes*/
+/*#region font sizes*/
 h1{font-size:36px}
 h2{font-size:30px}
 h3{font-size:24px}
 h4{font-size:20px}
 h5{font-size:18px}
 h6{font-size:16px}
-.tiny{font-size:10px}
-.small{font-size:12px}
-.medium{font-size:15px}
-.large{font-size:18px}
-.xlarge{font-size:24px}
-.xxlarge{font-size:36px}
 .xxxlarge{font-size:48px}
-.jumbo{font-size:64px}
+/*#endregion font sizes*/
 
-/* Text alignment*/
+/*#region text alignment*/
 .text-left-align{text-align:left}
 .text-right-align{text-align:right}
 .text-justify{text-align:justify}
 .text-center{text-align:center}
+/*#endregion text alignment*/
 
-/* Alignment */
+/*#region alignment*/
 .left-align{float: left}
 .right-align{float: right}
 .vertical-align-top{vertical-align:top}
 .vertical-align-middle{vertical-align:middle}
 .vertical-align-bottom{vertical-align:bottom}
+/*#endregion alignment*/
 
-/* Margin */
-.margin{margin:16px} 
+/*#region margin*/
 .margin-top{margin-top:16px}
-.margin-bottom{margin-bottom:16px}
-.margin-left{margin-left:16px}
-.margin-right{margin-right:16px}
+/*#endregion margin*/
 
-/* Top bar */
+/*#region top bar*/
 #top {position:fixed;width:100%;z-index:1;top:0;display:block;}
 .bar {width:auto;display:inline-block;display:block;position:static;}
 .bar-item {width:auto;display:block;text-align:left;}
 .button-topmenu {display:inline-block;padding:20px 10px;vertical-align:middle;text-decoration:none;text-align:center;font:inherit;white-space:normal;height: 100%;position:relative;font-size: 17px;}
 .bar-img{display:inline-block;text-align:left;}
+/*#endregion top bar*/
 
+/*#region categories / dividers / percents*/
 /* 3 Categories menu */
 .third{float:left;width:33.3%}
 
@@ -69,46 +67,45 @@ h6{font-size:16px}
 /* 2 Categories map */
 .one-quarter-map{float: left;width: 20%;}
 .three-quarter-map{float: left;width: 80%;}
+/*#endregion categories / dividers / percents*/
 
-/* Buttons */
-button{font:inherit;margin:0;overflow:visible;text-transform:none}
-.btn,.button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
-.btn:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)} 
-.button:hover{color:#000;background-color:#ccc}
-
-/* Padding */
-.padding-small{padding:4px 8px}
-.padding{padding:8px 16px}
-.padding-large{padding:12px 24px}
+/*#region padding*/
 .padding-16{padding-top:16px;padding-bottom:16px}
-.padding-24{padding-top:24px;padding-bottom:24px}
 .padding-32{padding-top:32px;padding-bottom:32px}
-.padding-48{padding-top:48px;padding-bottom:48px}
-.padding-64{padding-top:64px;padding-bottom:64px}
-.padding-top-64{padding-top:64px}
-.padding-top-48{padding-top:48px}
-.padding-top-32{padding-top:32px}
-.padding-top-24{padding-top:24px}
 .row-padding,.third{padding:0 10px}
 .padding-header{padding-top:80px;padding-bottom:20px}
 .padding-whole-menu{padding-left:20px;padding-right: 20px;}
 .padding-32-side{padding-left: 32px;padding-right: 32px;}
 .padding-lr120{padding-left:120px;padding-right:120px}
 .padding-tb5{padding-top: 5px;padding-bottom: 5px;}
-.padding-lr16{padding-left:16px;padding-right: 16px;}
-.padding-lrtb32{padding-left: 32px;padding-right: 32px;padding-top:32px;padding-bottom:32px}
+/*#endregion padding*/
 
-/* Footer */
+/*#region footer*/
 .footer {position: fixed;left: 0;bottom: 0;width: 100%;}
 .a-underlined:hover{text-decoration: underline;}
+/*#endregion footer*/
 
-/* Animations */
-.animate-top{position:relative;animation:animatetop 0.4s}@keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}
-.animate-left{position:relative;animation:animateleft 0.4s}@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
-.animate-right{position:relative;animation:animateright 0.4s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
-.animate-bottom{position:relative;animation:animatebottom 0.4s}@keyframes animatebottom{from{bottom:-300px;opacity:0} to{bottom:0;opacity:1}}
+/*#region animations*/
+.animate-bottom
+{
+  position:relative;
+  animation:animatebottom 0.4s
+}
 
-/* Colors */
+@keyframes animatebottom
+{
+  from
+  {
+    bottom:-300px;opacity:0
+  }
+  to
+  {
+    bottom:0;opacity:1
+  }
+}
+/*#endregion animations*/
+
+/*#region colors*/
 .brown {color:#FFFBEE; background-color:#C77C74 }
 .orange {color:#FFFBEE;background-color: #FB9353}
 .white {color:#755B62; background-color:#FFFBEE}
@@ -124,8 +121,9 @@ button{font:inherit;margin:0;overflow:visible;text-transform:none}
 .text-white{color:#fff}
 .text-black{color:#000}
 .text-brown{color:#4E3C41}
+/*#endregion colors*/
 
-/* Buttons animation */
+/*#region learn-more button animation*/
 .learn-more {width: 12rem;height: auto;position: relative;display: inline-block;cursor: pointer;outline: none;border: 0;vertical-align: middle;text-decoration: none;background: transparent;padding: 0;font-size: inherit;font-family: inherit;}
 .circle {transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);position: relative;display: block;margin: 0;width: 3rem;height: 3rem;border-radius: 1.625rem;}
 .icon {transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);position: absolute;top: 0;bottom: 0;margin: auto;}
@@ -135,8 +133,9 @@ button{font:inherit;margin:0;overflow:visible;text-transform:none}
 button:hover .circle {width: 100%;}
 button:hover .arrow {background: #fff;transform: translate(1rem, 0);}
 button:hover .button-text {color: #fff;}
+/*#endregion learn-more button animation*/
 
-/* Whole menu - scrolling image */
+/*#region whole menu - scrolling image*/
 .container-menu {
   overflow: hidden;
 }
@@ -156,9 +155,9 @@ button:hover .button-text {color: #fff;}
     transform: translate3d(-5925px, 0, 0);
   }
 }
+/*#endregion whole menu - scrolling image*/
 
-
-/* Go back to top button */
+/*#region back to top*/
 #arrowUp {
   display: none;
   position: fixed;
@@ -180,8 +179,9 @@ button:hover .button-text {color: #fff;}
 #arrowUp:hover {
   background-color: rgba(75, 73, 73, 0.8);
 }
+/*#endregion back to top*/
 
-/* Resizing images */
+/*#region resized images*/
 .clickable {
   cursor:pointer;
 }
@@ -262,8 +262,9 @@ button:hover .button-text {color: #fff;}
 .hover-text-red:hover{
   color:#CC3B5A;
 }
+/*#endregion resized images*/
 
-/* Register button */
+/*#region register button*/
 .animated-register {
 	color: black;
 	cursor: pointer;
@@ -300,8 +301,9 @@ button:hover .button-text {color: #fff;}
 	background: #CC3B5A;
 	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 }
+/*#endregion register button*/
 
-/* button once user is logged in*/
+/*#region button once user is logged in*/
 .button-account {
 	color: white;
 	cursor: pointer;
@@ -356,8 +358,9 @@ button:hover .button-text {color: #fff;}
 .account-button:active {
   box-shadow: 1px 1px 7px #222;
 }
+/*#endregion button once user is logged in*/
 
-/* Popup */
+/*#region popup*/
 .popup {
   display: none;
   position: fixed;
@@ -373,8 +376,9 @@ button:hover .button-text {color: #fff;}
   margin: auto; 
   padding: 50px;
 }
+/*#endregion popup*/
 
-/* Login/Register form */
+/*#region login/register form*/
 .login-wrap {
   position: relative;
   margin: 0 auto;
@@ -465,9 +469,9 @@ button:hover .button-text {color: #fff;}
 .login-wrap .form button:active,.register-wrap .form button:active {
   box-shadow: 1px 1px 7px #222;
 }
+/*#endregion login/register form*/
 
-
-/* Scrollbar */
+/*#region scrollbar*/
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -487,8 +491,9 @@ button:hover .button-text {color: #fff;}
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+/*#endregion scrollbar*/
 
-/* Random popup */
+/*#region random popup */
 #random {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -519,3 +524,58 @@ button:hover .button-text {color: #fff;}
   text-align: center;
   margin-top: 10px;
 }
+/*#endregion random popup*/
+
+/*#region menu table*/
+.table-style {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  margin-left:auto;
+  margin-right:auto;
+  width:900px;
+}
+
+.table-style thead tr {
+  background-color: #CC3B5A;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.table-style th, .table-style td {
+  padding: 12px 15px;
+}
+
+.table-style tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.table-style tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.table-style tbody tr:last-of-type {
+  border-bottom: 2px solid #CC3B5A;
+}
+
+.table-style tbody tr:hover {
+  font-style: italic;
+  color: #CC3B5A;
+}
+
+/*#endregion menu table*/
+
+/*#region search*/
+.search:hover{
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+/*#endregion search*/
+
+/*#region */
+/*#endregion */
