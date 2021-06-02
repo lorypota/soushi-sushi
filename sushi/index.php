@@ -86,7 +86,6 @@
 <title>Soushi sushi - Homepage</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/css.css">
-<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="icon" sizes="192x192" href="images/random/logo9.png">
 <body onload="startModalImg();">
 
@@ -97,14 +96,14 @@
 <div id="top">
   <div class="bar padding-8" style="width:100%; background-color:rgba(0,0,0,0.8);">
     <img src="images/random/logo5.png" style="width: 80px;padding-left:30px" class="vertical-align-middle"/></img>
-    <img src="images/random/homepage.png" class="bar-img" style="width: 55px; padding-left: 35px;"></img>
-    <a href="#home" class="bar-item button-topmenu text-white hover-text-red"> HOME </a>
     <img src="images/random/menu.png" class="bar-img" style="width: 55px; padding-left: 35px;"></img>
     <a href="#menu" class="bar-item button-topmenu text-white hover-text-red"> MENU </a>
     <img src="images/random/question.png" class="bar-img" style="width: 55px; padding-left: 35px;"></img>
     <a href="#who" class="bar-item button-topmenu text-white hover-text-red"> US </a>
     <img src="images/random/medal.png" class="bar-img" style="width: 55px; padding-left: 35px;"></img>
     <a href="#quality" class="bar-item button-topmenu text-white hover-text-red"> QUALITY </a>
+    <img src="images/random/where.png" class="bar-img" style="width: 55px; padding-left: 35px;"></img>
+    <a href="#where" class="bar-item button-topmenu text-white hover-text-red"> WHERE </a>
 
     <!-- Register -->
     <?php
@@ -224,7 +223,7 @@
         <img src="images/icons/044-sushi.png" width="150px"></img></br></br>
 
         <!-- Button learn more -->
-        <button class="learn-more">
+        <button class="learn-more" onclick="location.href = 'menu-sushi.php';">
           <span class="circle background-black">
             <span class="icon arrow background-white"></span>
           </span>
@@ -240,7 +239,7 @@
         <img src="images/icons/050-noodles.png" width="150px"></img></br></br>
 
         <!-- Button learn more -->
-        <button class="learn-more">
+        <button class="learn-more" onclick="location.href = 'menu-spcialties.php';">
           <span class="circle background-black">
             <span class="icon arrow background-white"></span>
           </span>
@@ -256,7 +255,7 @@
         <img src="images/icons/031-ice-tea.png" width="150px"></img></br></br>
         
         <!-- Button learn more -->
-        <button class="learn-more">
+        <button class="learn-more" onclick="location.href = 'menu-drinks.php';">
           <span class="circle background-black">
             <span class="icon arrow background-white"></span>
           </span>
@@ -285,7 +284,7 @@
       </br>
 
       <!-- Button learn more -->
-      <button class="learn-more">
+      <button class="learn-more" onclick="location.href = 'menu.php';">
         <span class="circle background-black">
           <span class="icon arrow background-white"></span>
         </span>
@@ -336,7 +335,7 @@
   </div>
     
   <!-- Where are we? -->
-  <a name="map"></a>
+  <a name="where"></a>
   <div class="padding-whole-menu text-center padding-16">
     <div class="card background-white" style="min-height:310px">
       <div class="padding-tb5">

@@ -10,7 +10,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Activation, Dropout
 from tensorflow.keras.optimizers import SGD
 
-lemmatizer = WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
 
 intents = json.loads(open('intents.json').read())
 
@@ -27,4 +27,7 @@ for intent in intents['intents']:
         if intent['tag'] not in classes:
             classes.append(intent['tag'])
 
-print(documents)
+words= [lemmatizer.lemmatize(word) for word in words if word not in ignore_letters]
+words = sorted(set(words))
+
+print(words)

@@ -95,6 +95,8 @@ button{font:inherit;margin:0;overflow:visible;text-transform:none}
 .padding-32-side{padding-left: 32px;padding-right: 32px;}
 .padding-lr120{padding-left:120px;padding-right:120px}
 .padding-tb5{padding-top: 5px;padding-bottom: 5px;}
+.padding-lr16{padding-left:16px;padding-right: 16px;}
+.padding-lrtb32{padding-left: 32px;padding-right: 32px;padding-top:32px;padding-bottom:32px}
 
 /* Footer */
 .footer {position: fixed;left: 0;bottom: 0;width: 100%;}
@@ -117,6 +119,8 @@ button{font:inherit;margin:0;overflow:visible;text-transform:none}
 .background-black{background: #4E3C41}
 .color-black{color: #4E3C41}
 .background-white{background: #fff}
+.background-dark-red{background-color: #CC3B5A}
+.background-red{background-color: #FF435F}
 .text-white{color:#fff}
 .text-black{color:#000}
 .text-brown{color:#4E3C41}

@@ -182,3 +182,4 @@ if(spanAccount != null)
         body.style.overflow = "visible"; //Sets overflow of the page to visible to allow scrolling
     }
 }
+

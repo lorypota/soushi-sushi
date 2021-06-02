@@ -1,0 +1,87 @@
+{"intents":[
+    {
+        "tag": "greetings",
+        "patterns": ["hello", "hey", "greetings", "good day", "how are you", "what's up"],
+        "responses": ["Hello!","What can I do for you?","How can I help you?"]
+    },
+    {
+        "tag": "goodbye",
+        "patterns": ["bye", "cya", "see you later", "i am leaving", "goodbye", "see ya"],
+        "responses": ["Goodbye!","I hope I helped you out!","Glad I could help!"]
+    },
+    {
+        "tag": "greetings2",
+        "patterns": ["Ok", "Yes", "I'll do that now", "sure", "thanks"],
+        "responses": ["Glad I could help!","Happy to help!"]
+    },
+    {
+        "tag": "birthday",
+        "patterns": ["today is my birthday"],
+        "responses": ["Happy birthday!"]
+    },
+    {
+        "tag": "greetings3",
+        "patterns": ["I have a question", "Can I ask you something", "can you help me?"],
+        "responses": ["Anything to help!"]
+    },
+    {
+        "tag": "humanService",
+        "patterns": ["I want to speak to a human", "live agent", "customer service", "contacts", "do you even speak english","I want the answer NOW","You're annoying","you suck"],
+        "responses": ["Sorry I couldn't help, here is the number to our customer service: +39 583 483 2934 and here is the email: soushisushi@gmail.com, hope this helps!"]
+    },
+    {
+        "tag": "name",
+        "patterns": ["What is your name","how can i call you"],
+        "responses": ["You can call me Rixa!","My name is Rixa!"]
+    },
+    {
+        "tag": "human",
+        "patterns": ["are you a human","are you a robot"],
+        "responses": ["I am a Artificial Intelligence powered chatbot!","I'm your personal Virtual Assistant!"]
+    },
+    {
+        "tag": "age",
+        "patterns": ["what is your age","how old are you"],
+        "responses": ["I am 1 month years old!","I was created one month ago!"]
+    },
+    {
+        "tag": "languages",
+        "patterns": ["how many languages can you speak","can you only speak english"],
+        "responses": ["I can only speak english (for now)!","My main language is English but I am learning morse code!"]
+    },
+    {
+        "tag": "quality",
+        "patterns": ["rice quality", "quality", "salmon", "ingredients", "sushi quality"],
+        "responses": ["All our ingredients are selected and treated precisely, Soushi guarantees food safety and mantainment of properties of the singular ingredients thank to a meticular workmaship."]
+    },
+    {
+        "tag": "who",
+        "patterns": ["who are you","how long has soushi been around","soushi chefs","soushi service"],
+        "responses": ["Soushi is a small company born in Bergamo, Italy. Our extraordinary cooks wish to make your meal an unforgettable event. Soushi wishes you a great meal!"]
+    },
+    {
+        "tag": "where",
+        "patterns": ["where are you estabilished","where do you ship from","where is the restaurant"],
+        "responses": ["Soushi is a based in Bergamo, Italy!"]
+    },
+    {
+        "tag": "when",
+        "patterns": ["shipping time","how long does it take to ship","delay between order and shipping"],
+        "responses": ["Soushi ships in around one hour for clients in Seriate, if you live out of Seriate we are sorry for not shipping to you!"]
+    },
+    {
+        "tag": "Sushi",
+        "patterns": ["what sushi do you offer","sushi dishes","types of sushi","sushi"],
+        "responses": ["You can check our sushi menu in the dedicated page or scroll the full menu instead!"]
+    },
+    {
+        "tag": "Specialties",
+        "patterns": ["what specialties do you offer","specialties"],
+        "responses": ["You can check our specialties menu in the dedicated page or scroll the full menu instead!"]
+    },
+    {
+        "tag": "drinks",
+        "patterns": ["what drinks do you offer","drinks","types of drinks"],
+        "responses": ["You can check our drinks menu in the dedicated page or scroll the full menu instead!"]
+    }
+]}
