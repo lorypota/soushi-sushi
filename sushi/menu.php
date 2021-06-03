@@ -342,114 +342,120 @@
               }
               break;
             case "specialities":
-              $count_outputted_rows++;
-              echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td>";
-              $query2 = "SELECT ingredient FROM sushi_ingredients WHERE sushi_name = \"".$sushi_name."\"";
-              $result2 = mysqli_query($conn, $query2);
-              $ingredient = "";
-              $gluten_free = true;
-              $spicy = false;
-              $diet = "vegan";
-              while($row = $result2->fetch_assoc())
+              if($is_special == 1)
               {
-                $ingredient .= "<div class=\"tooltip\">".$row['ingredient']."<span class=\"tooltiptext tooltip-top\">";
-                $query3 = "SELECT description, is_glutenfree, is_spicy, id_diet from ingredients where ingredient = \"".$row['ingredient']."\"";
-                $result3 = mysqli_query($conn, $query3);
-                while($row = $result3->fetch_assoc())
+                $count_outputted_rows++;
+                echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td>";
+                $query2 = "SELECT ingredient FROM sushi_ingredients WHERE sushi_name = \"".$sushi_name."\"";
+                $result2 = mysqli_query($conn, $query2);
+                $ingredient = "";
+                $gluten_free = true;
+                $spicy = false;
+                $diet = "vegan";
+                while($row = $result2->fetch_assoc())
                 {
-                  $ingredient .= $row['description'];
-                  if($row['is_glutenfree']==0)
-                    $gluten_free = false;
-                  if($row['is_spicy']==1)
-                    $spicy = true;
-                  if($row['id_diet']==null)
-                    $diet = "none";
-                  else if($row['id_diet']=="vegetarian" && $diet == "vegan")
-                    $diet = "vegetarian";
+                  $ingredient .= "<div class=\"tooltip\">".$row['ingredient']."<span class=\"tooltiptext tooltip-top\">";
+                  $query3 = "SELECT description, is_glutenfree, is_spicy, id_diet from ingredients where ingredient = \"".$row['ingredient']."\"";
+                  $result3 = mysqli_query($conn, $query3);
+                  while($row = $result3->fetch_assoc())
+                  {
+                    $ingredient .= $row['description'];
+                    if($row['is_glutenfree']==0)
+                      $gluten_free = false;
+                    if($row['is_spicy']==1)
+                      $spicy = true;
+                    if($row['id_diet']==null)
+                      $diet = "none";
+                    else if($row['id_diet']=="vegetarian" && $diet == "vegan")
+                      $diet = "vegetarian";
+                  }
+                  $ingredient .= "</span> </div> &nbsp;&nbsp;";
                 }
-                $ingredient .= "</span> </div> &nbsp;&nbsp;";
+                echo "<td>$ingredient</td> <td>";
+                if($gluten_free)
+                {
+                  echo "<div class=\"tooltip-img\">";
+                  echo "<img src=\"images/random/food_categories/gluten-free.png\" style=\"width: 50px;\"></img>";
+                  echo "<span class=\"tooltiptext tooltip-top-img\">Gluten free</span> </div>";
+                }
+                if($spicy)
+                {
+                  echo "<div class=\"tooltip-img\">";
+                  echo "<img src=\"images/random/food_categories/spicy.png\" style=\"width: 50px;\"></img>";
+                  echo "<span class=\"tooltiptext tooltip-top-img\">Spicy!</span> </div>";
+                }
+                if($diet=="vegan")
+                {
+                  echo "<div class=\"tooltip-img\">";
+                  echo "<img src=\"images/random/food_categories/vegan.png\" style=\"width: 50px;\"></img>";
+                  echo "<span class=\"tooltiptext tooltip-top-img\">Vegan diet</span> </div>";
+                }
+                else if ($diet = "vegetarian")
+                {
+                  echo "<div class=\"tooltip-img\">";
+                  echo "<img src=\"images/random/food_categories/vegetarian.png\" style=\"width: 50px;\"></img>";
+                  echo "<span class=\"tooltiptext tooltip-top-img\">Vegetarian diet</span> </div>";
+                }
+                echo "</td> </tr>";
               }
-              echo "<td>$ingredient</td> <td>";
-              if($gluten_free)
-              {
-                echo "<div class=\"tooltip-img\">";
-                echo "<img src=\"images/random/food_categories/gluten-free.png\" style=\"width: 50px;\"></img>";
-                echo "<span class=\"tooltiptext tooltip-top-img\">Gluten free</span> </div>";
-              }
-              if($spicy)
-              {
-                echo "<div class=\"tooltip-img\">";
-                echo "<img src=\"images/random/food_categories/spicy.png\" style=\"width: 50px;\"></img>";
-                echo "<span class=\"tooltiptext tooltip-top-img\">Spicy!</span> </div>";
-              }
-              if($diet=="vegan")
-              {
-                echo "<div class=\"tooltip-img\">";
-                echo "<img src=\"images/random/food_categories/vegan.png\" style=\"width: 50px;\"></img>";
-                echo "<span class=\"tooltiptext tooltip-top-img\">Vegan diet</span> </div>";
-              }
-              else if ($diet = "vegetarian")
-              {
-                echo "<div class=\"tooltip-img\">";
-                echo "<img src=\"images/random/food_categories/vegetarian.png\" style=\"width: 50px;\"></img>";
-                echo "<span class=\"tooltiptext tooltip-top-img\">Vegetarian diet</span> </div>";
-              }
-              echo "</td> </tr>";
               break;
             case "sushi";
-              $count_outputted_rows++;
-              echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td>";
-              $query2 = "SELECT ingredient FROM sushi_ingredients WHERE sushi_name = \"".$sushi_name."\"";
-              $result2 = mysqli_query($conn, $query2);
-              $ingredient = "";
-              $gluten_free = true;
-              $spicy = false;
-              $diet = "vegan";
-              while($row = $result2->fetch_assoc())
+              if($is_drink == 0 && $is_special == 0)
               {
-                $ingredient .= "<div class=\"tooltip\">".$row['ingredient']."<span class=\"tooltiptext tooltip-top\">";
-                $query3 = "SELECT description, is_glutenfree, is_spicy, id_diet from ingredients where ingredient = \"".$row['ingredient']."\"";
-                $result3 = mysqli_query($conn, $query3);
-                while($row = $result3->fetch_assoc())
+                $count_outputted_rows++;
+                echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td>";
+                $query2 = "SELECT ingredient FROM sushi_ingredients WHERE sushi_name = \"".$sushi_name."\"";
+                $result2 = mysqli_query($conn, $query2);
+                $ingredient = "";
+                $gluten_free = true;
+                $spicy = false;
+                $diet = "vegan";
+                while($row = $result2->fetch_assoc())
                 {
-                  $ingredient .= $row['description'];
-                  if($row['is_glutenfree']==0)
-                    $gluten_free = false;
-                  if($row['is_spicy']==1)
-                    $spicy = true;
-                  if($row['id_diet']==null)
-                    $diet = "none";
-                  else if($row['id_diet']=="vegetarian" && $diet == "vegan")
-                    $diet = "vegetarian";
+                  $ingredient .= "<div class=\"tooltip\">".$row['ingredient']."<span class=\"tooltiptext tooltip-top\">";
+                  $query3 = "SELECT description, is_glutenfree, is_spicy, id_diet from ingredients where ingredient = \"".$row['ingredient']."\"";
+                  $result3 = mysqli_query($conn, $query3);
+                  while($row = $result3->fetch_assoc())
+                  {
+                    $ingredient .= $row['description'];
+                    if($row['is_glutenfree']==0)
+                      $gluten_free = false;
+                    if($row['is_spicy']==1)
+                      $spicy = true;
+                    if($row['id_diet']==null)
+                      $diet = "none";
+                    else if($row['id_diet']=="vegetarian" && $diet == "vegan")
+                      $diet = "vegetarian";
+                  }
+                  $ingredient .= "</span> </div> &nbsp;&nbsp;";
                 }
-                $ingredient .= "</span> </div> &nbsp;&nbsp;";
+                echo "<td>$ingredient</td> <td>";
+                if($gluten_free)
+                {
+                  echo "<div class=\"tooltip-img\">";
+                  echo "<img src=\"images/random/food_categories/gluten-free.png\" style=\"width: 50px;\"></img>";
+                  echo "<span class=\"tooltiptext tooltip-top-img\">Gluten free</span> </div>";
+                }
+                if($spicy)
+                {
+                  echo "<div class=\"tooltip-img\">";
+                  echo "<img src=\"images/random/food_categories/spicy.png\" style=\"width: 50px;\"></img>";
+                  echo "<span class=\"tooltiptext tooltip-top-img\">Spicy!</span> </div>";
+                }
+                if($diet=="vegan")
+                {
+                  echo "<div class=\"tooltip-img\">";
+                  echo "<img src=\"images/random/food_categories/vegan.png\" style=\"width: 50px;\"></img>";
+                  echo "<span class=\"tooltiptext tooltip-top-img\">Vegan diet</span> </div>";
+                }
+                else if ($diet = "vegetarian")
+                {
+                  echo "<div class=\"tooltip-img\">";
+                  echo "<img src=\"images/random/food_categories/vegetarian.png\" style=\"width: 50px;\"></img>";
+                  echo "<span class=\"tooltiptext tooltip-top-img\">Vegetarian diet</span> </div>";
+                }
+                echo "</td> </tr>";
               }
-              echo "<td>$ingredient</td> <td>";
-              if($gluten_free)
-              {
-                echo "<div class=\"tooltip-img\">";
-                echo "<img src=\"images/random/food_categories/gluten-free.png\" style=\"width: 50px;\"></img>";
-                echo "<span class=\"tooltiptext tooltip-top-img\">Gluten free</span> </div>";
-              }
-              if($spicy)
-              {
-                echo "<div class=\"tooltip-img\">";
-                echo "<img src=\"images/random/food_categories/spicy.png\" style=\"width: 50px;\"></img>";
-                echo "<span class=\"tooltiptext tooltip-top-img\">Spicy!</span> </div>";
-              }
-              if($diet=="vegan")
-              {
-                echo "<div class=\"tooltip-img\">";
-                echo "<img src=\"images/random/food_categories/vegan.png\" style=\"width: 50px;\"></img>";
-                echo "<span class=\"tooltiptext tooltip-top-img\">Vegan diet</span> </div>";
-              }
-              else if ($diet = "vegetarian")
-              {
-                echo "<div class=\"tooltip-img\">";
-                echo "<img src=\"images/random/food_categories/vegetarian.png\" style=\"width: 50px;\"></img>";
-                echo "<span class=\"tooltiptext tooltip-top-img\">Vegetarian diet</span> </div>";
-              }
-              echo "</td> </tr>";
               break;
           }
 
