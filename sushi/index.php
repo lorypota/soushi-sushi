@@ -223,7 +223,7 @@
         <img src="images/icons/044-sushi.png" width="150px"></img></br></br>
 
         <!-- Button learn more -->
-        <button class="learn-more" onclick="location.href = 'menu-sushi.php';">
+        <button class="learn-more" onclick="location.href = 'menu.php?list=sushi';">
           <span class="circle background-black">
             <span class="icon arrow background-white"></span>
           </span>
@@ -239,7 +239,7 @@
         <img src="images/icons/050-noodles.png" width="150px"></img></br></br>
 
         <!-- Button learn more -->
-        <button class="learn-more" onclick="location.href = 'menu-spcialties.php';">
+        <button class="learn-more" onclick="location.href = 'menu.php?list=specialities';">
           <span class="circle background-black">
             <span class="icon arrow background-white"></span>
           </span>
@@ -255,7 +255,7 @@
         <img src="images/icons/031-ice-tea.png" width="150px"></img></br></br>
         
         <!-- Button learn more -->
-        <button class="learn-more" onclick="location.href = 'menu-drinks.php';">
+        <button class="learn-more" onclick="location.href = 'menu.php?list=drinks';">
           <span class="circle background-black">
             <span class="icon arrow background-white"></span>
           </span>
@@ -284,7 +284,7 @@
       </br>
 
       <!-- Button learn more -->
-      <button class="learn-more" onclick="location.href = 'menu.php';">
+      <button class="learn-more" onclick="location.href = 'menu.php?list=all';">
         <span class="circle background-black">
           <span class="icon arrow background-white"></span>
         </span>

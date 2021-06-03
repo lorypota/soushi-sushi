@@ -134,11 +134,45 @@
 
       $result = mysqli_query($conn, $query);
 
-      $num = mysqli_num_rows($result);
+      $num = 0;
+
+      if ($result->num_rows > 0)
+      {
+        // output data of each row
+        while($row = $result->fetch_assoc())
+        {
+          if(strcmp($_GET['list'],"all")==0)
+          {
+            $num = mysqli_num_rows($result);
+          }
+          else if(strcmp($_GET['list'],"drink")==0 && $row['is_drink'] == 1)
+          {
+            $num++;
+          }
+          else if(strcmp($_GET['list'],"specialities")==0 && $row['is_special'] == 1)
+          {
+            $num++;
+          }
+          else if($row['is_drink'] == 0 && $row['is_special'] == 0)
+          {
+            $num++;
+          }
+        }
+      }
       echo "<h2>$num dishes or drinks available!</h2> ";  //Shows number of dishes
+
+      $result = mysqli_query($conn, $query);
     ?>
 
     <form action="menu.php" method="get">
+      Show:
+      <select name="list">
+        <option value="all">Show all</option>
+        <option value="sushi">Only sushi</option>
+        <option value="specialties">Only specialties</option>
+        <option value="drinks">Only drinks</option>
+      </select>
+
       Order by: 
       <select name="order">
         <option value="all">Show all</option>
@@ -148,16 +182,23 @@
       </select>
 
       Number of table rows: 
-      <input type="text" name="elements_number" value="20" style="width: 30px;"></input>
+      <input type="number" name="elements_number" min="1" value="20" style="width: 45px;"></input>
       <input type="image" src="images/random/search.png" width="15px" height="15px" class="search" alt="Submit">
     </form>
 
-    <div style="width:98%; margin:1%;">
+    <div class="">
 
         <?php
 
           $count = 0;
-          $elements_number = 20;
+          if(isset($_GET['elements_number']))
+          {
+            $elements_number = $_GET['elements_number'];
+          }
+          else
+          {
+            $elements_number = 20;
+          }
           
           if ($result->num_rows > 0)
           {
@@ -177,27 +218,58 @@
 
               if($count-1 == 0 || ($count-1)%$elements_number == 0)
               {
-                echo "<table class=\"table-style page".$page_number2."\">
-                      <thead>
-                        <tr>
-                          <th>Sushi name</th>
-                          <th>Description</th>
-                          <th>Price</th>
-                        </tr>
-                      </thead>
-                      <tbody>";
+                echo "<div class=\"table-center-div\">
+                        <table class=\"table-style page".$page_number2."\" style=\"\">
+                        <thead>
+                          <tr>";
+                
+                if(strcmp($_GET['list'],"all")==0)
+                {
+                  echo "<th>Sushi/specialty/drink name</th>";
+                }
+                else if(strcmp($_GET['list'],"drink")==0)
+                {
+                  echo "<th>Drink name</th>";
+                }
+                else if(strcmp($_GET['list'],"specialities")==0)
+                {
+                  echo "<th>Specialty name</th>";
+                }
+                else
+                {
+                  echo "<th>Sushi name</th>";
+                }
+
+                echo       "<th>Description</th>
+                            <th>Price</th>
+                          </tr>
+                        </thead>
+                        <tbody>";
               }
 
-              echo "<tr>
-                      <td>$sushi_name</td>
-                      <td>$description</td>
-                      <td>$$price</td>
-                    </tr>";
+              echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td> </tr>";
+             /* if(strcmp($_GET['list'],"all")==0)
+              {
+                echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td> </tr>";
+              }
+              else if(strcmp($_GET['list'],"drink")==0 && $is_drink == 1)
+              {
+                echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td> </tr>";
+              }
+              else if(strcmp($_GET['list'],"specialities")==0 && $is_special == 1)
+              {
+                echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td> </tr>";
+              }
+              else if($is_drink == 0 && $is_special == 0)
+              {
+                echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td> </tr>";
+              } */
 
               if($count == $num || $count%$elements_number == 0)
               {
-                echo "</tbody>
-                      </table>";
+                  echo "</tbody>
+                        </table>
+                      </div>";
               }
             }
           }
@@ -295,25 +367,7 @@
 <!-- Pop-up generated -->
 <?php
 
-  if(isset($_GET["success1"]))
-  {
-    echo "<script>buttonLoginFunc();openRandom();</script>";
-  }
-
-  if(isset($_GET["success2"])||isset($_GET["error2"])||isset($_GET["success3"]))
-  {
-    echo "<script>openRandom();</script>";
-  }
-
-  if(isset($_GET["error1"])||isset($_GET["error3"])||isset($_GET["error4"]))
-  {
-    echo "<script>buttonRegisterFunc();openRandom();</script>";
-  }
-
-  if(isset($_GET["error5"]))
-  {
-    echo "<script>buttonLoginFunc();openRandom();</script>";
-  }
+  
 
 ?>
 

@@ -527,6 +527,12 @@ button:hover .button-text {color: #fff;}
 /*#endregion random popup*/
 
 /*#region menu table*/
+
+.table-center-div{
+  width:98%; 
+  margin:1%;
+}
+
 .table-style {
   border-collapse: collapse;
   margin: 25px 0;
