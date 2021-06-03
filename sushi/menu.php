@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/css.css">
 <link rel="icon" sizes="192x192" href="images/random/logo9.png">
-<body onload="startModalImg();">
+<body>
 
 <!-- Top of the page button  -->
 <button onclick="topFunction()" id="arrowUp" title="Go to top"><img src="images/random/arrow-up.png" width="20px"></button>
@@ -87,20 +87,6 @@
   </div>
 </div>
 
-<!-- Pop-up generated -->
-<?php
-
-  if(isset($_GET["success1"])||isset($_GET["success2"])||isset($_GET["success3"])||isset($_GET["error1"])||isset($_GET["error2"])||isset($_GET["error3"])||isset($_GET["error4"])||isset($_GET["error5"]))
-  {
-    echo $popup;
-  }
-
-  if(isset($popupAccount))
-  {
-    echo $popupAccount;
-  }
-?>
-
 <!-- Header -->
 <header class="container dark-red padding-header" id="myHeader">
   <div class="text-center">
@@ -134,32 +120,44 @@
 
       $result = mysqli_query($conn, $query);
 
-      $num = 0;
+      $num = mysqli_num_rows($result);
+
+      $number_elements_to_output = 0;
 
       if ($result->num_rows > 0)
       {
-        // output data of each row
         while($row = $result->fetch_assoc())
         {
-          if(strcmp($_GET['list'],"all")==0)
+          if(strcmp($_GET['list'],"drinks")==0 && $row['is_drink'] == 1)
           {
-            $num = mysqli_num_rows($result);
-          }
-          else if(strcmp($_GET['list'],"drink")==0 && $row['is_drink'] == 1)
-          {
-            $num++;
+            $number_elements_to_output++;
           }
           else if(strcmp($_GET['list'],"specialities")==0 && $row['is_special'] == 1)
           {
-            $num++;
+            $number_elements_to_output++;
           }
-          else if($row['is_drink'] == 0 && $row['is_special'] == 0)
+          else if(strcmp($_GET['list'],"sushi")==0 && $row['is_drink'] == 0 && $row['is_special'] == 0)
           {
-            $num++;
+            $number_elements_to_output++;
           }
         }
       }
-      echo "<h2>$num dishes or drinks available!</h2> ";  //Shows number of dishes
+
+      switch ($_GET['list']) { //Shows number of dishes
+        case "all":
+          echo "<h2>".$num." sushi / specialties / drinks available!</h2> ";
+          $number_elements_to_output = $num;
+          break;
+        case "drinks":
+          echo "<h2>".$number_elements_to_output." drinks available!</h2> ";
+          break;
+        case "specialities":
+          echo "<h2>".$number_elements_to_output." specialties available!</h2> ";
+          break;
+        case "sushi";
+          echo "<h2>".$number_elements_to_output." sushi dishes available!</h2> ";
+          break;
+      }
 
       $result = mysqli_query($conn, $query);
     ?>
@@ -167,191 +165,225 @@
     <form action="menu.php" method="get">
       Show:
       <select name="list">
-        <option value="all">Show all</option>
-        <option value="sushi">Only sushi</option>
-        <option value="specialties">Only specialties</option>
-        <option value="drinks">Only drinks</option>
+        <option value="all" <?php if(isset($_GET['list'])){if($_GET['list']=="all"){echo "selected=\"selected\"";}}?>>Show all</option>
+        <option value="sushi" <?php if(isset($_GET['list'])){if($_GET['list']=="sushi"){echo "selected=\"selected\"";}}?>>Only sushi</option>
+        <option value="specialities" <?php if(isset($_GET['list'])){if($_GET['list']=="specialities"){echo "selected=\"selected\"";}}?>>Only specialties</option>
+        <option value="drinks" <?php if(isset($_GET['list'])){if($_GET['list']=="drinks"){echo "selected=\"selected\"";}}?>>Only drinks</option>
       </select>
 
       Order by: 
       <select name="order">
-        <option value="all">Show all</option>
-        <option value="sushi">Sushi</option>
-        <option value="specialties">Specialties</option>
-        <option value="drinks">Drinks</option>
+        <option value="nameInc" <?php if(isset($_GET['order'])){if($_GET['order']=="nameInc"){echo "selected=\"selected\"";}}?>>Name increasing</option>
+        <option value="nameDec" <?php if(isset($_GET['order'])){if($_GET['order']=="nameDec"){echo "selected=\"selected\"";}}?>>Name decreasing</option>
+        <option value="priceInc" <?php if(isset($_GET['order'])){if($_GET['order']=="priceInc"){echo "selected=\"selected\"";}}?>>Price increasing</option>
+        <option value="priceDec" <?php if(isset($_GET['order'])){if($_GET['order']=="priceDec"){echo "selected=\"selected\"";}}?>>Price decreasing</option>
       </select>
 
       Number of table rows: 
-      <input type="number" name="elements_number" min="1" value="20" style="width: 45px;"></input>
+      <input type="number" name="elements_number" min="1"
+      <?php
+        if(isset($_GET['elements_number']))
+        {
+          echo "value=\"".$_GET['elements_number']."\"";
+        }
+        else
+        {
+          echo "value=\"20\"";
+        }
+      ?>
+     style="width: 45px;"></input>
+
       <input type="image" src="images/random/search.png" width="15px" height="15px" class="search" alt="Submit">
     </form>
 
-    <div class="">
+    <?php
 
-        <?php
-
-          $count = 0;
-          if(isset($_GET['elements_number']))
-          {
-            $elements_number = $_GET['elements_number'];
-          }
-          else
-          {
-            $elements_number = 20;
-          }
-          
-          if ($result->num_rows > 0)
-          {
-            // output data of each row
-            while($row = $result->fetch_assoc())
+      /* order based on select */
+      if(isset($_GET['order']))
+      {
+        switch ($_GET['order'])
             {
+              case "nameInc":
+                $query .= " order by sushi_name";
+                break;
+              case "nameDec":
+                $query .= " order by sushi_name desc";
+                break;
+              case "priceInc":
+                $query .= " order by price";
+                break;
+              case "priceDec";
+                $query .= " order by price desc";
+                break;
+            }
+      }
 
-              $sushi_name = $row['sushi_name'];
-              $description = $row['description'];
-              $price = $row['price'];
-              $is_special = $row['is_special'];
-              $is_drink = $row['is_drink'];
+      $result = mysqli_query($conn, $query);
 
-              $page_number = ceil($count/$elements_number);
-              $page_number2 = $page_number+1;
-              $count++;
+      $count_outputted_rows = 0;
+      $count2 = 0;
 
-              if($count-1 == 0 || ($count-1)%$elements_number == 0)
-              {
-                echo "<div class=\"table-center-div\">
-                        <table class=\"table-style page".$page_number2."\" style=\"\">
-                        <thead>
-                          <tr>";
-                
-                if(strcmp($_GET['list'],"all")==0)
-                {
-                  echo "<th>Sushi/specialty/drink name</th>";
-                }
-                else if(strcmp($_GET['list'],"drink")==0)
-                {
-                  echo "<th>Drink name</th>";
-                }
-                else if(strcmp($_GET['list'],"specialities")==0)
-                {
-                  echo "<th>Specialty name</th>";
-                }
-                else
-                {
-                  echo "<th>Sushi name</th>";
-                }
+      if(isset($_GET['elements_number']))
+      {
+        $elements_number = $_GET['elements_number'];
+      }
+      else
+      {
+        $elements_number = 20;
+      }
 
-                echo       "<th>Description</th>
-                            <th>Price</th>
-                          </tr>
-                        </thead>
-                        <tbody>";
-              }
+      $pages_number = ceil($number_elements_to_output/$elements_number);
+      
+      if ($result->num_rows > 0)
+      {
+        // output data of each row
+        while($row = $result->fetch_assoc())
+        {
+          $count2++;
+          $sushi_name = $row['sushi_name'];
+          $description = $row['description'];
+          $price = $row['price'];
+          $is_special = $row['is_special'];
+          $is_drink = $row['is_drink'];
 
+          $page_number = ceil($count_outputted_rows/$elements_number)+1;
+
+          if(($count_outputted_rows%$elements_number == 0 || $count2==1) &&($_GET['list']=="all"||($_GET['list']=="drinks" && $is_drink==1)||($_GET['list']=="specialities" && $is_special==1)||($_GET['list']=="sushi" && $is_drink == 0 && $is_special == 0)))
+          {
+            echo "<div class=\"table-center-div\">
+                    <table class=\"table-style page".$page_number."\" style=\"\">
+                    <thead>
+                      <tr>";
+
+            switch ($_GET['list'])
+            {
+              case "all":
+                echo "<th>Sushi/specialty/drink name</th>";
+                break;
+              case "drinks":
+                echo "<th>Drink name</th>";
+                break;
+              case "specialities":
+                echo "<th>Specialty name</th>";
+                break;
+              case "sushi";
+                echo "<th>Sushi name</th>";
+                break;
+            }
+
+            echo "<th>Description</th> <th>Price</th> </tr> </thead> <tbody>";
+          }
+
+          switch ($_GET['list'])
+          {
+            case "all":
+              $count_outputted_rows++;
               echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td> </tr>";
-             /* if(strcmp($_GET['list'],"all")==0)
+              break;
+            case "drinks":
+              if($is_drink == 1)
               {
+                $count_outputted_rows++;
                 echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td> </tr>";
               }
-              else if(strcmp($_GET['list'],"drink")==0 && $is_drink == 1)
+              break;
+            case "specialities":
+              if($is_special == 1)
               {
+                $count_outputted_rows++;
                 echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td> </tr>";
               }
-              else if(strcmp($_GET['list'],"specialities")==0 && $is_special == 1)
+              break;
+            case "sushi";
+              if($is_drink == 0 && $is_special == 0)
               {
+                $count_outputted_rows++;
                 echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td> </tr>";
               }
-              else if($is_drink == 0 && $is_special == 0)
-              {
-                echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td> </tr>";
-              } */
-
-              if($count == $num || $count%$elements_number == 0)
-              {
-                  echo "</tbody>
-                        </table>
-                      </div>";
-              }
-            }
+              break;
           }
-          else
+
+          if(($count_outputted_rows%$elements_number == 0 || $number_elements_to_output == $count_outputted_rows) &&($_GET['list']=="all"||($_GET['list']=="drinks" && $is_drink==1)||($_GET['list']=="specialities" && $is_special==1)||($_GET['list']=="sushi" && $is_drink == 0 && $is_special == 0)))
           {
-              die('Error during the retrieval of data!');
+            echo "</tbody>
+                  </table>
+                </div>";
           }
+        }
+      }
+      else
+      {
+          die('Error during the retrieval of data!');
+      }
 
-        ?>
-
-      <?php
-
-      echo "<style>
-            .page1 {display: block}
-            ";
-            for($i=2; $i<=ceil($num/$elements_number); $i++)
-            {
-              echo ".page".$i." {display: none}";
-            }
-      echo "</style>
-            <script>
-
-              var selectedPage = 1;
-              var num_pages = ".$page_number.";
-              var page;
-
-              function incrementPage()
-              {
-                  page = document.getElementsByClassName('page'+selectedPage);
-                  for(i=0;i<page.length;i++)
-                  {
-                    page[i].style.display=\"none\";
-                  }
-
-                  var value = parseInt(document.getElementById('pageNumber').value, 10);
-                  if(selectedPage!=num_pages)
-                  {
-                    selectedPage++;
-                    document.getElementById('pageNumber').value = selectedPage;
-                  }
-
-                  page = document.getElementsByClassName('page'+selectedPage);
-                  for(i=0;i<page.length;i++)
-                  {
-                    page[i].style.display=\"block\";
-                  }
-              }
-
-              function decrementPage()
-              {
-                  page = document.getElementsByClassName('page'+selectedPage);
-                  for(i=0;i<page.length;i++)
-                  {
-                    page[i].style.display=\"none\";
-                  }
-
-                  var value = parseInt(document.getElementById('pageNumber').value, 10);
-                  if(selectedPage!=1)
-                  {
-                    selectedPage--;
-                    document.getElementById('pageNumber').value = selectedPage;
-                  }
-
-                  page = document.getElementsByClassName('page'+selectedPage);
-                  for(i=0;i<page.length;i++)
-                  {
-                    page[i].style.display=\"block\";
-                  }
-              }
-
-            </script>
-            
-            <button onclick=\"decrementPage()\"> ❮ </button>
-
-            <input type=\"text\" id=\"pageNumber\" value=\"1\" class=\"text-center\" style=\"width: 10px; border: none;\" readonly></input>
-            
-            <button onclick=\"incrementPage()\"> ❯ </button>
-            
+    echo "<style>
+          .page1 {display: block}
           ";
-      ?>
+          for($i=2; $i<=ceil($number_elements_to_output/$elements_number); $i++)
+          {
+            echo ".page".$i." {display: none}";
+          }
+    echo "</style>
+          <script>
 
-    </div>
+            var selectedPage = 1;
+            var num_pages = ".$pages_number.";
+            var page;
+
+            function incrementPage()
+            {
+                page = document.getElementsByClassName('page'+selectedPage);
+                for(i=0;i<page.length;i++)
+                {
+                  page[i].style.display=\"none\";
+                }
+
+                var value = parseInt(document.getElementById('pageNumber').value, 10);
+                if(selectedPage!=num_pages)
+                {
+                  selectedPage++;
+                  document.getElementById('pageNumber').value = selectedPage;
+                }
+
+                page = document.getElementsByClassName('page'+selectedPage);
+                for(i=0;i<page.length;i++)
+                {
+                  page[i].style.display=\"block\";
+                }
+            }
+
+            function decrementPage()
+            {
+                page = document.getElementsByClassName('page'+selectedPage);
+                for(i=0;i<page.length;i++)
+                {
+                  page[i].style.display=\"none\";
+                }
+
+                var value = parseInt(document.getElementById('pageNumber').value, 10);
+                if(selectedPage!=1)
+                {
+                  selectedPage--;
+                  document.getElementById('pageNumber').value = selectedPage;
+                }
+
+                page = document.getElementsByClassName('page'+selectedPage);
+                for(i=0;i<page.length;i++)
+                {
+                  page[i].style.display=\"block\";
+                }
+            }
+
+          </script>
+          
+          <button onclick=\"decrementPage()\"> ❮ </button>
+
+          <input type=\"text\" id=\"pageNumber\" value=\"1\" class=\"text-center\" style=\"width: 20px; border: none;\" readonly></input>
+          
+          <button onclick=\"incrementPage()\"> ❯ </button>
+          
+        ";
+    ?>
   </div>
 </div>
 <!-- Footer -->
