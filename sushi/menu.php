@@ -1,3 +1,91 @@
+<?php
+
+  //starts session
+  session_start();
+
+  if(isset($_GET["success1"]))
+  {
+    $popup = "<div id=\"random\">
+                <div class=\"random-content\">
+                  <span class=\"close-random close-x\">&times;</span>
+                  <h2 class=\"random-style\">Success!</h2>
+                  <p class=\"random-style\">Registered with success! Now you can log-in.</p>
+                </div>
+              </div>";
+  }
+  if(isset($_SESSION["popuplogin"])&&$_SESSION["popuplogin"] == 1)
+  {
+    $popup = "<div id=\"random\">
+                <div class=\"random-content\">
+                  <span class=\"close-random close-x\">&times;</span>
+                  <h2 class=\"random-style\">Success!</h2>
+                  <p class=\"random-style\">Logged with success as ".$_SESSION["username"]."!</p>
+                </div>
+              </div>";
+    $_SESSION["popuplogin"] = 2;
+  }
+  if(isset($_GET["success3"]))
+  {
+    $popup = "<div id=\"random\">
+                <div class=\"random-content\">
+                  <span class=\"close-random close-x\">&times;</span>
+                  <h2 class=\"random-style\">Success!</h2>
+                  <p class=\"random-style\">Logged out with success!</p>
+                </div>
+              </div>";
+  }
+  if(isset($_GET["error1"]))
+  {
+    $popup = "<div id=\"random\">
+                <div class=\"random-content\">
+                  <span class=\"close-random close-x\">&times;</span>
+                  <h2 class=\"random-style\">Error!</h2>
+                  <p class=\"random-style\">Password and Confirm password should match!</p>
+                </div>
+              </div>";
+  }
+  if(isset($_GET["error2"]))
+  {
+    $popup = "<div id=\"random\">
+                <div class=\"random-content\">
+                  <span class=\"close-random close-x\">&times;</span>
+                  <h2 class=\"random-style\">Error!</h2>
+                  <p class=\"random-style\">Connection error!</p>
+                </div>
+              </div>";
+  }
+  if(isset($_GET["error3"]))
+  {
+    $popup = "<div id=\"random\">
+                <div class=\"random-content\">
+                  <span class=\"close-random close-x\">&times;</span>
+                  <h2 class=\"random-style\">Error!</h2>
+                  <p class=\"random-style\">Username already taken!</p>
+                </div>
+              </div>";
+  }
+  if(isset($_GET["error4"]))
+  {
+    $popup = "<div id=\"random\">
+                <div class=\"random-content\">
+                  <span class=\"close-random close-x\">&times;</span>
+                  <h2 class=\"random-style\">Error!</h2>
+                  <p class=\"random-style\">Something went wrong with the registration!</p>
+                </div>
+              </div>";
+  }
+  if(isset($_GET["error5"]))
+  {
+    $popup = "<div id=\"random\">
+                <div class=\"random-content\">
+                  <span class=\"close-random close-x\">&times;</span>
+                  <h2 class=\"random-style\">Error!</h2>
+                  <p class=\"random-style\">Username or password is wrong!</p>
+                </div>
+              </div>";
+  }
+
+?>
 
 <html>
 <title>Soushi sushi - Menu</title>
@@ -19,17 +107,17 @@
     <!-- Register -->
     <?php
     
-    if(isset($_GET["success2"])){
+    if(isset($_SESSION["logged"])){
       echo "<img src=\"images/random/shopping-cart.png\" class=\"bar-img\" style=\"width: 55px; padding-left: 35px;\"></img>
            <a href=\"#map\" class=\"bar-item button-topmenu text-white hover-text-red\"> SHOPPING-CART </a>";
-      echo "<button id=\"accountButton\" class=\"bar-item button-topmenu button-account\" style=\"float: right; padding: auto 20px auto 20px;\">Logged in as: ".$_GET["success2"]."</button>";
+      echo "<button id=\"accountButton\" class=\"bar-item button-topmenu button-account\" style=\"float: right; padding: auto 20px auto 20px;\">Logged in as: ".$_SESSION["username"]."</button>";
       $popupAccount = " <div id=\"account\">
                           <div class=\"account-content\">
                             <span class=\"close-account close-x\">&times;</span>
-                            <h2 class=\"random-style\">Account: ".$_GET["success2"]."</h2>
-                            <p class=\"random-style\">First name: ".$_GET["first"]."</p>
-                            <p class=\"random-style\">Last name: ".$_GET["last"]."</p>
-                            <form action=\"logout.php\">
+                            <h2 class=\"random-style\">Account: ".$_SESSION["username"]."</h2>
+                            <p class=\"random-style\">First name: ".$_SESSION["firstname"]."</p>
+                            <p class=\"random-style\">Last name: ".$_SESSION["lastname"]."</p>
+                            <form action=\"logout.php?page=menu\" method=\"POST\">
                               <button type=\"submit\" class=\"account-button\"> Log out </button>
                             </form>
                           </div>
@@ -52,7 +140,7 @@
       <span class="close-login close-x">&times;</span>
       <h2>Login</h2>
       <div class="form">
-        <form action="login-account.php" method="post">
+        <form action="login-account.php?page=menu" method="post">
           <input required type="text" placeholder="Username" name="un" />
           <input required type="password" placeholder="Password" name="pw" />
           <button type="submit"> Sign in </button>
@@ -86,6 +174,20 @@
 
   </div>
 </div>
+
+<!-- Pop-up generated -->
+<?php
+
+  if(isset($_GET["success1"])||isset($_GET["success3"])||isset($_GET["error1"])||isset($_GET["error2"])||isset($_GET["error3"])||isset($_GET["error4"])||isset($_GET["error5"])||(isset($_SESSION["popuplogin"])&&$_SESSION["popuplogin"] == 1))
+  {
+    echo $popup;
+  }
+
+  if(isset($popupAccount))
+  {
+    echo $popupAccount;
+  }
+?>
 
 <!-- Header -->
 <header class="container dark-red padding-header" id="myHeader">
@@ -552,6 +654,31 @@
 </span>
 
 <script src="js/javascript.js"></script>
+
+<!-- Pop-up generated -->
+<?php
+
+  if(isset($_GET["success1"]))
+  {
+    echo "<script>buttonLoginFunc();openRandom();</script>";
+  }
+
+  if(isset($_SESSION["logged"])||isset($_GET["error2"])||isset($_GET["success3"]))
+  {
+    echo "<script>openRandom();</script>";
+  }
+
+  if(isset($_GET["error1"])||isset($_GET["error3"])||isset($_GET["error4"]))
+  {
+    echo "<script>buttonRegisterFunc();openRandom();</script>";
+  }
+
+  if(isset($_GET["error5"]))
+  {
+    echo "<script>buttonLoginFunc();openRandom();</script>";
+  }
+
+?>
 
 </body>
 </html>

@@ -1,4 +1,8 @@
 <?php
+
+    //starts session
+    session_start();
+
     $servername = "localhost";
     $username_mysql = "root";
     $password_mysql = "";
@@ -39,7 +43,21 @@
           
             if ($row = 1)
             {
-                header("location:index.php?success2=".$username."&first=".$firstname."&last=".$lastname);
+                $_SESSION["logged"] = "yes";
+                $_SESSION["username"] = $username;
+                $_SESSION["firstname"] = $firstname;
+                $_SESSION["lastname"] = $lastname;
+                $_SESSION["popuplogin"] = 1;
+
+                if($_GET['page']=="index")
+                {
+                    header("location:index.php");
+                }
+                else if($_GET['page']=="menu")
+                {
+                    header("location:menu.php?list=all");
+                }
+
                 die('Logged-in with success!');
             }
             else
