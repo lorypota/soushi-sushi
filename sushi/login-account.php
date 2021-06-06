@@ -25,13 +25,16 @@
 
     $result = mysqli_query($conn, $query);
 
-    if ($result->num_rows > 0) {
+    if ($result->num_rows > 0)
+    {
         // output data of each row
-        while($row = $result->fetch_assoc()) {
+        while($row = $result->fetch_assoc())
+        {
             $firstname = $row['first_name'];
             $lastname = $row['last_name'];
         }
-    } else {
+    } else
+    {
         header("location:index.php?error5=1");
         die('Error during the login!');
     }
@@ -48,6 +51,24 @@
                 $_SESSION["firstname"] = $firstname;
                 $_SESSION["lastname"] = $lastname;
                 $_SESSION["popuplogin"] = 1;
+
+                $query2 = "SELECT id_cart from cart where username= \"".$username."\" and is_ordered= 0";
+                $result2 = mysqli_query($conn, $query2);
+                $number_rows = mysqli_num_rows($result2);
+
+                if($number_rows < 1)
+                {
+                    $query3 = "INSERT INTO cart (id_cart, username, is_ordered, date_order) VALUES (\"\", \"".$username."\", 0, null);";
+                    mysqli_query($conn, $query3);
+                }
+
+                $query3 = "SELECT id_cart from cart where username= \"".$username."\" and is_ordered= 0";
+                $result3 = mysqli_query($conn, $query3);
+
+                while($row = $result3->fetch_assoc())
+                {
+                    $_SESSION["cart"] = $row['id_cart'];
+                }
 
                 if($_GET['page']=="index")
                 {

@@ -22,7 +22,7 @@
                   <p class=\"random-style\">Logged with success as ".$_SESSION["username"]."!</p>
                 </div>
               </div>";
-    $_SESSION["popuplogin"] = 2;
+    $_SESSION["popuplogin"]++;
   }
   if(isset($_GET["success3"]))
   {
@@ -31,6 +31,16 @@
                   <span class=\"close-random close-x\">&times;</span>
                   <h2 class=\"random-style\">Success!</h2>
                   <p class=\"random-style\">Logged out with success!</p>
+                </div>
+              </div>";
+  }
+  if(isset($_GET["success_item"]))
+  {
+    $popup = "<div id=\"random\">
+                <div class=\"random-content\">
+                  <span class=\"close-random close-x\">&times;</span>
+                  <h2 class=\"random-style\">Success!</h2>
+                  <p class=\"random-style\">Item added with success!</p>
                 </div>
               </div>";
   }
@@ -109,7 +119,7 @@
     
     if(isset($_SESSION["logged"])){
       echo "<img src=\"images/random/shopping-cart.png\" class=\"bar-img\" style=\"width: 55px; padding-left: 35px;\"></img>
-           <a href=\"#map\" class=\"bar-item button-topmenu text-white hover-text-red\"> SHOPPING-CART </a>";
+           <a href=\"shopping-cart.php\" class=\"bar-item button-topmenu text-white hover-text-red\"> SHOPPING-CART </a>";
       echo "<button id=\"accountButton\" class=\"bar-item button-topmenu button-account\" style=\"float: right; padding: auto 20px auto 20px;\">Logged in as: ".$_SESSION["username"]."</button>";
       $popupAccount = " <div id=\"account\">
                           <div class=\"account-content\">
@@ -178,9 +188,15 @@
 <!-- Pop-up generated -->
 <?php
 
-  if(isset($_GET["success1"])||isset($_GET["success3"])||isset($_GET["error1"])||isset($_GET["error2"])||isset($_GET["error3"])||isset($_GET["error4"])||isset($_GET["error5"])||(isset($_SESSION["popuplogin"])&&$_SESSION["popuplogin"] == 1))
+  if(isset($_GET["success1"])||isset($_GET["success3"])||isset($_GET["error1"])||isset($_GET["error2"])||isset($_GET["error3"])||isset($_GET["error4"])||isset($_GET["error5"])||isset($_GET["success_item"]))
   {
     echo $popup;
+  }
+
+  if(isset($_SESSION["popuplogin"]) && $_SESSION["popuplogin"] == 2)
+  {
+    echo $popup;
+    $_SESSION["popuplogin"]++;
   }
 
   if(isset($popupAccount))
@@ -295,7 +311,7 @@
       ?>
      style="width: 45px;"></input>
 
-      <input type="image" src="images/random/search.png" width="15px" height="15px" class="search" alt="Submit">
+      <input type="image" src="images/random/search.png" width="15px" height="15px" class="search" alt="Submit"></input>
     </form>
 
     <?php
@@ -314,7 +330,7 @@
               case "priceInc":
                 $query .= " order by price";
                 break;
-              case "priceDec";
+              case "priceDec":
                 $query .= " order by price desc";
                 break;
             }
@@ -374,8 +390,15 @@
             }
 
             echo "<th>Description</th> <th>Price</th>";
+
             if($_GET['list']!="drinks")
               echo "<th>Ingredients</th> <th>Properties</th>";
+
+            if(isset($_SESSION["cart"]))
+            {
+              echo "<th>Add to cart &nbsp</th>";
+            }
+
             echo "</tr> </thead> <tbody>";
           }
 
@@ -407,40 +430,64 @@
                   else if($row['id_diet']=="vegetarian" && $diet == "vegan")
                     $diet = "vegetarian";
                 }
-                $ingredient .= "</span> </div> &nbsp;&nbsp;";
+                $ingredient .= "</span> </div> &nbsp;";
               }
               echo "<td>$ingredient</td> <td>";
               if($gluten_free)
               {
                 echo "<div class=\"tooltip-img\">";
-                echo "<img src=\"images/random/food_categories/gluten-free.png\" style=\"width: 50px;\"></img>";
+                echo "<img src=\"images/random/food_categories/gluten-free.png\" style=\"width: 40px;\"></img>";
                 echo "<span class=\"tooltiptext tooltip-top-img\">Gluten free</span> </div>";
               }
               if($spicy)
               {
                 echo "<div class=\"tooltip-img\">";
-                echo "<img src=\"images/random/food_categories/spicy.png\" style=\"width: 50px;\"></img>";
+                echo "<img src=\"images/random/food_categories/spicy.png\" style=\"width: 40px;\"></img>";
                 echo "<span class=\"tooltiptext tooltip-top-img\">Spicy!</span> </div>";
               }
               if($diet=="vegan")
               {
                 echo "<div class=\"tooltip-img\">";
-                echo "<img src=\"images/random/food_categories/vegan.png\" style=\"width: 50px;\"></img>";
+                echo "<img src=\"images/random/food_categories/vegan.png\" style=\"width: 40px;\"></img>";
                 echo "<span class=\"tooltiptext tooltip-top-img\">Vegan diet</span> </div>";
               }
               else if ($diet = "vegetarian")
               {
                 echo "<div class=\"tooltip-img\">";
-                echo "<img src=\"images/random/food_categories/vegetarian.png\" style=\"width: 50px;\"></img>";
+                echo "<img src=\"images/random/food_categories/vegetarian.png\" style=\"width: 40px;\"></img>";
                 echo "<span class=\"tooltiptext tooltip-top-img\">Vegetarian diet</span> </div>";
               }
+
+              if(isset($_SESSION["cart"]))
+              {
+                echo "</td> <td>";
+                echo "<form action=\"add-to-cart.php\" method=\"post\">";
+                echo    "<input type=\"hidden\" name=\"sushi_name\" value=".str_replace(' ', '_', $sushi_name)."></input>";
+                echo    "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input>";
+                echo    "<input type=\"image\" src=\"images/random/add-to-cart.png\" width=\"30px\" height=\"30px\" class=\"cart-image vertical-align-middle\" alt=\"Submit\"></input>";
+                echo "</form>";
+              }
+
               echo "</td> </tr>";
               break;
             case "drinks":
               if($is_drink == 1)
               {
                 $count_outputted_rows++;
-                echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td> </tr>";
+                echo "<tr> <td>$sushi_name</td> <td>$description</td> <td>$$price</td>";
+
+                if(isset($_SESSION["cart"]))
+                {
+                  echo "<td>";
+                    echo "<form action=\"add-to-cart.php\" method=\"post\">";
+                      echo "<input type=\"hidden\" name=\"sushi_name\" value=".str_replace(' ', '_', $sushi_name)."></input>";
+                      echo "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input>";
+                      echo "<input type=\"image\" src=\"images/random/add-to-cart.png\" width=\"30px\" height=\"30px\" class=\"cart-image vertical-align-middle\" alt=\"Submit\"></input>";
+                    echo "</form>";
+                  echo "</td>";
+                }
+
+                echo "</tr>";
               }
               break;
             case "specialities":
@@ -471,33 +518,44 @@
                     else if($row['id_diet']=="vegetarian" && $diet == "vegan")
                       $diet = "vegetarian";
                   }
-                  $ingredient .= "</span> </div> &nbsp;&nbsp;";
+                  $ingredient .= "</span> </div> &nbsp;";
                 }
                 echo "<td>$ingredient</td> <td>";
                 if($gluten_free)
                 {
                   echo "<div class=\"tooltip-img\">";
-                  echo "<img src=\"images/random/food_categories/gluten-free.png\" style=\"width: 50px;\"></img>";
+                  echo "<img src=\"images/random/food_categories/gluten-free.png\" style=\"width: 40px;\"></img>";
                   echo "<span class=\"tooltiptext tooltip-top-img\">Gluten free</span> </div>";
                 }
                 if($spicy)
                 {
                   echo "<div class=\"tooltip-img\">";
-                  echo "<img src=\"images/random/food_categories/spicy.png\" style=\"width: 50px;\"></img>";
+                  echo "<img src=\"images/random/food_categories/spicy.png\" style=\"width: 40px;\"></img>";
                   echo "<span class=\"tooltiptext tooltip-top-img\">Spicy!</span> </div>";
                 }
                 if($diet=="vegan")
                 {
                   echo "<div class=\"tooltip-img\">";
-                  echo "<img src=\"images/random/food_categories/vegan.png\" style=\"width: 50px;\"></img>";
+                  echo "<img src=\"images/random/food_categories/vegan.png\" style=\"width: 40px;\"></img>";
                   echo "<span class=\"tooltiptext tooltip-top-img\">Vegan diet</span> </div>";
                 }
                 else if ($diet = "vegetarian")
                 {
                   echo "<div class=\"tooltip-img\">";
-                  echo "<img src=\"images/random/food_categories/vegetarian.png\" style=\"width: 50px;\"></img>";
+                  echo "<img src=\"images/random/food_categories/vegetarian.png\" style=\"width: 40px;\"></img>";
                   echo "<span class=\"tooltiptext tooltip-top-img\">Vegetarian diet</span> </div>";
                 }
+
+                if(isset($_SESSION["cart"]))
+                {
+                  echo "</td> <td>";
+                  echo "<form action=\"add-to-cart.php\" method=\"post\">";
+                  echo    "<input type=\"hidden\" name=\"sushi_name\" value=".str_replace(' ', '_', $sushi_name)."></input>";
+                  echo    "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input>";
+                  echo    "<input type=\"image\" src=\"images/random/add-to-cart.png\" width=\"30px\" height=\"30px\" class=\"cart-image vertical-align-middle\" alt=\"Submit\"></input>";
+                  echo "</form>";
+                }
+
                 echo "</td> </tr>";
               }
               break;
@@ -529,33 +587,44 @@
                     else if($row['id_diet']=="vegetarian" && $diet == "vegan")
                       $diet = "vegetarian";
                   }
-                  $ingredient .= "</span> </div> &nbsp;&nbsp;";
+                  $ingredient .= "</span> </div> &nbsp;";
                 }
                 echo "<td>$ingredient</td> <td>";
                 if($gluten_free)
                 {
                   echo "<div class=\"tooltip-img\">";
-                  echo "<img src=\"images/random/food_categories/gluten-free.png\" style=\"width: 50px;\"></img>";
+                  echo "<img src=\"images/random/food_categories/gluten-free.png\" style=\"width: 40px;\"></img>";
                   echo "<span class=\"tooltiptext tooltip-top-img\">Gluten free</span> </div>";
                 }
                 if($spicy)
                 {
                   echo "<div class=\"tooltip-img\">";
-                  echo "<img src=\"images/random/food_categories/spicy.png\" style=\"width: 50px;\"></img>";
+                  echo "<img src=\"images/random/food_categories/spicy.png\" style=\"width: 40px;\"></img>";
                   echo "<span class=\"tooltiptext tooltip-top-img\">Spicy!</span> </div>";
                 }
                 if($diet=="vegan")
                 {
                   echo "<div class=\"tooltip-img\">";
-                  echo "<img src=\"images/random/food_categories/vegan.png\" style=\"width: 50px;\"></img>";
+                  echo "<img src=\"images/random/food_categories/vegan.png\" style=\"width: 40px;\"></img>";
                   echo "<span class=\"tooltiptext tooltip-top-img\">Vegan diet</span> </div>";
                 }
                 else if ($diet = "vegetarian")
                 {
                   echo "<div class=\"tooltip-img\">";
-                  echo "<img src=\"images/random/food_categories/vegetarian.png\" style=\"width: 50px;\"></img>";
+                  echo "<img src=\"images/random/food_categories/vegetarian.png\" style=\"width: 40px;\"></img>";
                   echo "<span class=\"tooltiptext tooltip-top-img\">Vegetarian diet</span> </div>";
                 }
+
+                if(isset($_SESSION["cart"]))
+                {
+                  echo "</td> <td>";
+                  echo "<form action=\"add-to-cart.php\" method=\"post\">";
+                  echo    "<input type=\"hidden\" name=\"sushi_name\" value=".str_replace(' ', '_', $sushi_name)."></input>";
+                  echo    "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input>";
+                  echo    "<input type=\"image\" src=\"images/random/add-to-cart.png\" width=\"30px\" height=\"30px\" class=\"cart-image vertical-align-middle\" alt=\"Submit\"></input>";
+                  echo "</form>";
+                }
+
                 echo "</td> </tr>";
               }
               break;

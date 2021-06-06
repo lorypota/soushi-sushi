@@ -22,7 +22,7 @@
                   <p class=\"random-style\">Logged with success as ".$_SESSION["username"]."!</p>
                 </div>
               </div>";
-    $_SESSION["popuplogin"] = 2;
+    $_SESSION["popuplogin"]++;
   }
   if(isset($_GET["success3"]))
   {
@@ -115,7 +115,7 @@
     
     if(isset($_SESSION["logged"])){
       echo "<img src=\"images/random/shopping-cart.png\" class=\"bar-img\" style=\"width: 55px; padding-left: 35px;\"></img>
-           <a href=\"#map\" class=\"bar-item button-topmenu text-white hover-text-red\"> SHOPPING-CART </a>";
+           <a href=\"shopping-cart.php\" class=\"bar-item button-topmenu text-white hover-text-red\"> SHOPPING-CART </a>";
       echo "<button id=\"accountButton\" class=\"bar-item button-topmenu button-account\" style=\"float: right; padding: auto 20px auto 20px;\">Logged in as: ".$_SESSION['username']."</button>";
       $popupAccount = " <div id=\"account\">
                           <div class=\"account-content\">
@@ -184,9 +184,15 @@
 <!-- Pop-up generated -->
 <?php
 
-  if(isset($_GET["success1"])||isset($_GET["success3"])||isset($_GET["error1"])||isset($_GET["error2"])||isset($_GET["error3"])||isset($_GET["error4"])||isset($_GET["error5"])||(isset($_SESSION["popuplogin"]) && $_SESSION["popuplogin"] == 2))
+  if(isset($_GET["success1"])||isset($_GET["success3"])||isset($_GET["error1"])||isset($_GET["error2"])||isset($_GET["error3"])||isset($_GET["error4"])||isset($_GET["error5"]))
   {
     echo $popup;
+  }
+
+  if(isset($_SESSION["popuplogin"]) && $_SESSION["popuplogin"] == 2)
+  {
+    echo $popup;
+    $_SESSION["popuplogin"]++;
   }
 
   if(isset($popupAccount))
