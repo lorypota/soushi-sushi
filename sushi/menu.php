@@ -171,7 +171,7 @@
       <span class="close-register close-x">&times;</span>
       <h2>Register</h2>
       <div class="form">
-        <form action="register-account.php" method="post">
+        <form action="register-account.php?page=menu" method="post">
         <input required type="text" placeholder="Username" minlength="4" maxlength="32" name="un" />
           <input required type="password" placeholder="Password" minlength="8" maxlength="32" name="pw1" />
           <input required type="password" placeholder="Repeat your password" minlength="8" maxlength="32" name="pw2" />

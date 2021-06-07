@@ -2,7 +2,7 @@
 
     $servername = "localhost";
     $username_mysql = "root";
-    $password = "";
+    $password_mysql = "";
     $dbname = "soushisushi";
 
     //Gets variables from post
@@ -19,7 +19,7 @@
     }
     
     //Create connection
-    $conn = new mysqli($servername, $username_mysql, $password, $dbname);
+    $conn = new mysqli($servername, $username_mysql, $password_mysql, $dbname);
     //Check connection
     if ($conn->connect_error)
     {
@@ -48,7 +48,14 @@
                 $result = mysqli_query($conn, $query);
                 if($result)
                 {
-                    header("location:index.php?success1=1");
+                    if($_GET['page']=="index")
+                    {
+                        header("location:index.php?success1=1");
+                    }
+                    else if($_GET['page']=="menu")
+                    {
+                        header("location:menu.php?list=all&success1=1");
+                    }
                     die('Registered with success! Now you can log-in.');
                 }
                 else

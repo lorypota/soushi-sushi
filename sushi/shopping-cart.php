@@ -105,11 +105,11 @@
 
         $servername = "localhost";
         $username_mysql = "root";
-        $password = "";
+        $password_mysql = "";
         $dbname = "soushisushi";
 
         //Create connection
-        $conn = new mysqli($servername, $username_mysql, $password, $dbname);
+        $conn = new mysqli($servername, $username_mysql, $password_mysql, $dbname);
         //Check connection
         if ($conn->connect_error)
         {

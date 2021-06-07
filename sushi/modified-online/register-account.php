@@ -48,7 +48,14 @@
                 $result = mysqli_query($conn, $query);
                 if($result)
                 {
-                    header("location:index.php?success1=1");
+                    if($_GET['page']=="index")
+                    {
+                        header("location:index.php?success1=1");
+                    }
+                    else if($_GET['page']=="menu")
+                    {
+                        header("location:menu.php?list=all&success1=1");
+                    }
                     die('Registered with success! Now you can log-in.');
                 }
                 else
