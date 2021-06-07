@@ -468,7 +468,7 @@
                 {
                   echo    "<input type=\"hidden\" name=\"order\" value=".$_GET['order']."></input>";
                 }
-                echo    "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input>";
+                echo    "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input><br>";
                 echo    "<input type=\"image\" src=\"images/random/add-to-cart.png\" width=\"30px\" height=\"30px\" class=\"cart-image vertical-align-middle\" alt=\"Submit\"></input>";
                 echo "</form>";
               }
@@ -491,7 +491,7 @@
                       {
                         echo    "<input type=\"hidden\" name=\"order\" value=".$_GET['order']."></input>";
                       }
-                      echo "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input>";
+                      echo "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input><br>";
                       echo "<input type=\"image\" src=\"images/random/add-to-cart.png\" width=\"30px\" height=\"30px\" class=\"cart-image vertical-align-middle\" alt=\"Submit\"></input>";
                     echo "</form>";
                   echo "</td>";
@@ -566,7 +566,7 @@
                   {
                     echo    "<input type=\"hidden\" name=\"order\" value=".$_GET['order']."></input>";
                   }
-                  echo    "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input>";
+                  echo    "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input><br>";
                   echo    "<input type=\"image\" src=\"images/random/add-to-cart.png\" width=\"30px\" height=\"30px\" class=\"cart-image vertical-align-middle\" alt=\"Submit\"></input>";
                   echo "</form>";
                 }
@@ -640,7 +640,7 @@
                   {
                     echo    "<input type=\"hidden\" name=\"order\" value=".$_GET['order']."></input>";
                   }
-                  echo    "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input>";
+                  echo    "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input><br>";
                   echo    "<input type=\"image\" src=\"images/random/add-to-cart.png\" width=\"30px\" height=\"30px\" class=\"cart-image vertical-align-middle\" alt=\"Submit\"></input>";
                   echo "</form>";
                 }
