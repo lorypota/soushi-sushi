@@ -19,7 +19,10 @@
     $sushi_name=str_replace('_', ' ', $_POST['sushi_name']);
     $pieces_number=$_POST['cart_number'];
     $list = $_POST['list'];
-    $order = $_POST['order'];
+    if(isset($_POST['order']))
+    {
+        $order = $_POST['order'];
+    }
     
     //Create connection
     $conn = new mysqli($servername, $username_mysql, $password_mysql, $dbname);
@@ -54,7 +57,15 @@
         mysqli_query($conn, $query2);
     }
 
-    header("location:menu.php?list=".$list."&order=".$order."&success_item=a");
+    if(isset($_POST['order']))
+    {
+        header("location:menu.php?list=".$list."&order=".$order."&success_item=a");
+    }
+    else
+    {
+        header("location:menu.php?list=".$list."&success_item=a");
+    }
+
     die('Item added with success!');
    
 ?>
