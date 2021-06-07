@@ -103,10 +103,10 @@
 
     <?php
 
-        $servername = "localhost";
-        $username_mysql = "root";
-        $password = "";
-        $dbname = "soushisushi";
+        $servername = "sql309.epizy.com";
+        $username_mysql = "epiz_28821330";
+        $password_mysql = "vodcHzpb60kC";
+        $dbname = "epiz_28821330_soushi";
 
         //Create connection
         $conn = new mysqli($servername, $username_mysql, $password, $dbname);
