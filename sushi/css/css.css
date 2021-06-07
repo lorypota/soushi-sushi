@@ -676,9 +676,14 @@ button:hover .button-text {color: #fff;}
   background: #CC3B5A;
   border: none;
   color: white;
-  font-size: 20px;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 5px;
+  margin: 25px 0;
+  font-size: 1.5em;
+  min-width: 350px;
+  overflow: hidden;
+  height: 41px;
+  margin-right:50px;
 }
 
 .order-now-button:hover {
@@ -690,5 +695,75 @@ button:hover .button-text {color: #fff;}
 }
 /*#endregion order now button*/
 
-/*#region */
-/*#endregion */
+/*#region order now line*/
+
+.order-now-center-div{
+  float: left;
+}
+
+.order-now-line-style {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  margin-left:50px;
+  margin-right:auto;
+  width:800px;
+}
+
+.order-now-line-style thead tr {
+  background-color: #CC3B5A;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.order-now-line-style th, .order-now-line-style td {
+  padding: 12px 15px;
+}
+/*#endregion order now line*/
+
+/*#region table ordered*/
+
+.table-style-ordered{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  margin-left:auto;
+  margin-right:auto;
+  width:1200px;
+}
+
+.table-style-ordered thead tr {
+  background-color: #F7A000;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.table-style-ordered th, .table-style-ordered td {
+  padding: 12px 15px;
+}
+
+.table-style-ordered tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.table-style-ordered tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.table-style-ordered tbody tr:last-of-type {
+  border-bottom: 2px solid 		#F7A000;
+}
+
+.table-style-ordered tbody tr:hover {
+  font-style: italic;
+  color: #F7A000;
+}
+/*#endregion table ordered*/

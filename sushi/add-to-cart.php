@@ -14,10 +14,12 @@
     $password_mysql = "";
     $dbname = "soushisushi";
 
-    //Gets variables from post
+    //Gets variables
     $id_cart=$_SESSION["cart"];
     $sushi_name=str_replace('_', ' ', $_POST['sushi_name']);
     $pieces_number=$_POST['cart_number'];
+    $list = $_POST['list'];
+    $order = $_POST['order'];
     
     //Create connection
     $conn = new mysqli($servername, $username_mysql, $password_mysql, $dbname);
@@ -52,7 +54,7 @@
         mysqli_query($conn, $query2);
     }
 
-    header("location:menu.php?list=all&success_item=a");
+    header("location:menu.php?list=".$list."&order=".$order."&success_item=a");
     die('Item added with success!');
    
 ?>

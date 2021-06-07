@@ -135,9 +135,12 @@ function buttonRegisterFunc()
     popup[1].style.display = "block"; //Shows the popup
 }
 
-buttonRegister.onclick = function()
+if(buttonRegister!=null)
 {
-    buttonRegisterFunc();
+    buttonRegister.onclick = function()
+    {
+        buttonRegisterFunc();
+    }
 }
 
 function openRandom()
@@ -154,17 +157,23 @@ if(spanRandom != null)
 }
 
 // When the user clicks on x, close the modal
-spanLogin.onclick = function()
+if(spanLogin!=null)
 {
-    popup[0].style.display = "none"; //Hides the popup
-    if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
-        arrowUp.style.display = "block"; //Shows the arrow to go to the top of the page
-    body.style.overflow = "visible"; //Sets overflow of the page to visible to allow scrolling
+    spanLogin.onclick = function()
+    {
+        popup[0].style.display = "none"; //Hides the popup
+        if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
+            arrowUp.style.display = "block"; //Shows the arrow to go to the top of the page
+        body.style.overflow = "visible"; //Sets overflow of the page to visible to allow scrolling
+    }
 }
 
-spanRegister.onclick = function()
+if(spanRegister!=null)
 {
-    popup[1].style.display = "none"; //Hides the popup
+    spanRegister.onclick = function()
+    {
+        popup[1].style.display = "none"; //Hides the popup
+    }
 }
 
 if(buttonAccount != null)

@@ -9,54 +9,13 @@
         die('You must first log-in!');
     }
 
-    if(isset($_GET["success1"]))
+    if(isset($_GET["success_order"]))
     {
         $popup = "<div id=\"random\">
                     <div class=\"random-content\">
                     <span class=\"close-random close-x\">&times;</span>
                     <h2 class=\"random-style\">Success!</h2>
-                    <p class=\"random-style\">Registered with success! Now you can log-in.</p>
-                    </div>
-                </div>";
-    }
-    if(isset($_SESSION["popuplogin"])&&$_SESSION["popuplogin"] == 1)
-    {
-        $popup = "<div id=\"random\">
-                    <div class=\"random-content\">
-                    <span class=\"close-random close-x\">&times;</span>
-                    <h2 class=\"random-style\">Success!</h2>
-                    <p class=\"random-style\">Logged with success as ".$_SESSION["username"]."!</p>
-                    </div>
-                </div>";
-        $_SESSION["popuplogin"]++;
-    }
-    if(isset($_GET["success3"]))
-    {
-        $popup = "<div id=\"random\">
-                    <div class=\"random-content\">
-                    <span class=\"close-random close-x\">&times;</span>
-                    <h2 class=\"random-style\">Success!</h2>
-                    <p class=\"random-style\">Logged out with success!</p>
-                    </div>
-                </div>";
-    }
-    if(isset($_GET["success_item"]))
-    {
-        $popup = "<div id=\"random\">
-                    <div class=\"random-content\">
-                    <span class=\"close-random close-x\">&times;</span>
-                    <h2 class=\"random-style\">Success!</h2>
-                    <p class=\"random-style\">Item added with success!</p>
-                    </div>
-                </div>";
-    }
-    if(isset($_GET["error1"]))
-    {
-        $popup = "<div id=\"random\">
-                    <div class=\"random-content\">
-                    <span class=\"close-random close-x\">&times;</span>
-                    <h2 class=\"random-style\">Error!</h2>
-                    <p class=\"random-style\">Password and Confirm password should match!</p>
+                    <p class=\"random-style\">Order succeeded!</p>
                     </div>
                 </div>";
     }
@@ -67,36 +26,6 @@
                     <span class=\"close-random close-x\">&times;</span>
                     <h2 class=\"random-style\">Error!</h2>
                     <p class=\"random-style\">Connection error!</p>
-                    </div>
-                </div>";
-    }
-    if(isset($_GET["error3"]))
-    {
-        $popup = "<div id=\"random\">
-                    <div class=\"random-content\">
-                    <span class=\"close-random close-x\">&times;</span>
-                    <h2 class=\"random-style\">Error!</h2>
-                    <p class=\"random-style\">Username already taken!</p>
-                    </div>
-                </div>";
-    }
-    if(isset($_GET["error4"]))
-    {
-        $popup = "<div id=\"random\">
-                    <div class=\"random-content\">
-                    <span class=\"close-random close-x\">&times;</span>
-                    <h2 class=\"random-style\">Error!</h2>
-                    <p class=\"random-style\">Something went wrong with the registration!</p>
-                    </div>
-                </div>";
-    }
-    if(isset($_GET["error5"]))
-    {
-        $popup = "<div id=\"random\">
-                    <div class=\"random-content\">
-                    <span class=\"close-random close-x\">&times;</span>
-                    <h2 class=\"random-style\">Error!</h2>
-                    <p class=\"random-style\">Username or password is wrong!</p>
                     </div>
                 </div>";
     }
@@ -139,70 +68,17 @@
                           </div>
                         </div>";
     }
-    else{
-      echo "<button id=\"loginButton\" class=\"bar-item button-topmenu animated-register\" style=\"float: right; padding: auto 20px auto 20px;\">LOG-IN</button>";
-    }
 
     ?>
-  </div>
-</div>
-
-<!-- Popup login -->
-<div class="popup">
-  <div class="popup-content">
-
-    <!-- Login form -->
-    <div class="login-wrap">
-      <span class="close-login close-x">&times;</span>
-      <h2>Login</h2>
-      <div class="form">
-        <form action="login-account.php?page=menu" method="post">
-          <input required type="text" placeholder="Username" name="un" />
-          <input required type="password" placeholder="Password" name="pw" />
-          <button type="submit"> Sign in </button>
-        </form>
-        <a id="registerButton"> <p> Don't have an account? Register </p></a>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Popup register -->
-<div class="popup">
-  <div class="popup-content">
-
-    <!-- Login form -->
-    <div class="register-wrap">
-      <span class="close-register close-x">&times;</span>
-      <h2>Register</h2>
-      <div class="form">
-        <form action="register-account.php" method="post">
-          <input required type="text" placeholder="Username" name="un" />
-          <input required type="password" placeholder="Password" name="pw1" />
-          <input required type="password" placeholder="Repeat your password" name="pw2" />
-          <input required type="text" placeholder="First Name" name="fn" />
-          <input required type="text" placeholder="Last Name" name="ln" />
-          <button type="submit" > Register </button>
-        </form>
-      </div>
-    </div>
-
   </div>
 </div>
 
 <!-- Pop-up generated -->
 <?php
 
-    if(isset($_GET["success1"])||isset($_GET["success3"])||isset($_GET["error1"])||isset($_GET["error2"])||isset($_GET["error3"])||isset($_GET["error4"])||isset($_GET["error5"])||isset($_GET["success_item"]))
+    if(isset($_GET["success_order"])||isset($_GET["error2"]))
     {
         echo $popup;
-    }
-
-    if(isset($_SESSION["popuplogin"]) && $_SESSION["popuplogin"] == 2)
-    {
-        echo $popup;
-        $_SESSION["popuplogin"]++;
     }
 
     if(isset($popupAccount))
@@ -257,6 +133,7 @@
             echo "<h2>".$number_rows." items added to the cart!</h2>";
 
             $total_price = 0;
+            $all_items = 0;
 
             if(isset($_GET['elements_number']))
             {
@@ -305,7 +182,7 @@
                     if(($count_outputted_rows%$elements_number == 0 || $count2==1))
                     {
                         echo "<div class=\"table-center-div\">
-                                <table class=\"table-style page".$page_number."\" style=\"\">
+                                <table class=\"table-style page".$page_number."\">
                                 <thead>
                                 <tr>
                                     <th>Item name</th> <th>Item description</th> <th>Item Ingredients</th> <th>Item properties</th> <th>Item quantity</th> <th>Items price</th>
@@ -378,6 +255,7 @@
                     $total_item = $price*$pieces_number;
                     $total_price += $price*$pieces_number;
                     echo "<td>$$total_item</td>";
+                    $all_items += $pieces_number;
 
                     if(($count_outputted_rows%$elements_number == 0 || $number_elements_to_output == $count_outputted_rows))
                     {
@@ -392,87 +270,144 @@
                 die('Error during the retrieval of data!');
             }
 
-        echo "<style>
-            .page1 {display: block}
-            ";
-            for($i=2; $i<=ceil($number_elements_to_output/$elements_number); $i++)
-            {
-                echo ".page".$i." {display: none}";
-            }
-        echo "</style>
-            <script>
-
-                var selectedPage = 1;
-                var num_pages = ".$pages_number.";
-                var page;
-
-                function incrementPage()
+            echo "<style>
+                .page1 {display: block}
+                ";
+                for($i=2; $i<=ceil($number_elements_to_output/$elements_number); $i++)
                 {
-                    page = document.getElementsByClassName('page'+selectedPage);
-                    for(i=0;i<page.length;i++)
-                    {
-                    page[i].style.display=\"none\";
-                    }
-
-                    var value = parseInt(document.getElementById('pageNumber').value, 10);
-                    if(selectedPage!=num_pages)
-                    {
-                    selectedPage++;
-                    document.getElementById('pageNumber').value = selectedPage;
-                    }
-
-                    page = document.getElementsByClassName('page'+selectedPage);
-                    for(i=0;i<page.length;i++)
-                    {
-                    page[i].style.display=\"block\";
-                    }
+                    echo ".page".$i." {display: none}";
                 }
+            echo "</style>
+                <script>
 
-                function decrementPage()
-                {
-                    page = document.getElementsByClassName('page'+selectedPage);
-                    for(i=0;i<page.length;i++)
+                    var selectedPage = 1;
+                    var num_pages = ".$pages_number.";
+                    var page;
+
+                    function incrementPage()
                     {
-                    page[i].style.display=\"none\";
+                        page = document.getElementsByClassName('page'+selectedPage);
+                        for(i=0;i<page.length;i++)
+                        {
+                        page[i].style.display=\"none\";
+                        }
+
+                        var value = parseInt(document.getElementById('pageNumber').value, 10);
+                        if(selectedPage!=num_pages)
+                        {
+                        selectedPage++;
+                        document.getElementById('pageNumber').value = selectedPage;
+                        }
+
+                        page = document.getElementsByClassName('page'+selectedPage);
+                        for(i=0;i<page.length;i++)
+                        {
+                        page[i].style.display=\"block\";
+                        }
                     }
 
-                    var value = parseInt(document.getElementById('pageNumber').value, 10);
-                    if(selectedPage!=1)
+                    function decrementPage()
                     {
-                    selectedPage--;
-                    document.getElementById('pageNumber').value = selectedPage;
+                        page = document.getElementsByClassName('page'+selectedPage);
+                        for(i=0;i<page.length;i++)
+                        {
+                        page[i].style.display=\"none\";
+                        }
+
+                        var value = parseInt(document.getElementById('pageNumber').value, 10);
+                        if(selectedPage!=1)
+                        {
+                        selectedPage--;
+                        document.getElementById('pageNumber').value = selectedPage;
+                        }
+
+                        page = document.getElementsByClassName('page'+selectedPage);
+                        for(i=0;i<page.length;i++)
+                        {
+                        page[i].style.display=\"block\";
+                        }
                     }
 
-                    page = document.getElementsByClassName('page'+selectedPage);
-                    for(i=0;i<page.length;i++)
-                    {
-                    page[i].style.display=\"block\";
-                    }
-                }
+                </script>
+                
+                <button onclick=\"decrementPage()\"> ❮ </button>
 
-            </script>
-            
-            <button onclick=\"decrementPage()\"> ❮ </button>
-
-            <input type=\"text\" id=\"pageNumber\" value=\"1\" class=\"text-center\" style=\"width: 20px; border: none;\" readonly></input>
-            
-            <button onclick=\"incrementPage()\"> ❯ </button>";
-        }
+                <input type=\"text\" id=\"pageNumber\" value=\"1\" class=\"text-center\" style=\"width: 20px; border: none;\" readonly></input>
+                
+                <button onclick=\"incrementPage()\"> ❯ </button>
+                <br>";
         
-        echo "
-            <div class=\"table-center-div\">
-                <table class=\"table-style\" style=\"border-radius: 5px;\">
-                    <thead>
-                        <tr>
-                            <th>Total items: ".$number_rows."</th>
-                            <th style=\"padding-left:300px\">Total price: $".$total_price."</th>
-                            <th class=\"right-align vertical-align-middle\"> <button class=\"order-now-button\">Order now! <img src=\"images/random/order-now.png\" style=\"width: 30px;\" class=\"vertical-align-middle\"></img></button></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>";
+            echo "
+                <div class=\"order-now-center-div\">
+                    <table class=\"order-now-line-style\" style=\"border-radius: 5px;\">
+                        <thead>
+                            <tr>
+                                <th>Total items: ".$all_items."</th>
+                                <th style=\"padding-left:300px\">Total price: $".$total_price."</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <form action=\"create-order.php\" method=\"post\" class=\"right-align\">
+                    <button class=\"order-now-button\" type=\"submit\"> Order now! <img src=\"images/random/order-now.png\" style=\"width: 30px;\" class=\"vertical-align-middle\"></img></button>
+                </form>
+                <br><br>
+                ";
+        }
+
+        $query2 = "SELECT id_cart, date_order FROM cart where username = \"".$_SESSION["username"]."\" and is_ordered = 1";
+
+        $result2 = mysqli_query($conn, $query2);
+
+        $number_rows2 = mysqli_num_rows($result2);
+
+        if($number_rows2>0)
+        {
+            echo "<div class=\"table-center-div\">
+                        <table class=\"table-style-ordered\">
+                            <thead>
+                                <tr>
+                                    <th>Previous orders dates (year/month/day)</th> <th>Price</th> <th>Number of items</th>
+                                </tr>
+                            </thead>
+                            <tbody>";
+
+            while($row2 = $result2->fetch_assoc())
+            {
+                $total_price = 0;
+                $total_items = 0;
+                $pieces_number = 0;
+
+                echo "</tr>";
+                echo "<td>".$row2['date_order']."</td>";
+                
+                $query3 = "SELECT sushi_name, pieces_number FROM cart_sushi where id_cart = ".$row2['id_cart'];
+                $result3 = mysqli_query($conn, $query3);
+
+                while($row3 = $result3->fetch_assoc())
+                {
+                    $pieces_number = $row3['pieces_number'];
+                    $total_items += $pieces_number;
+
+                    $query4 = "SELECT sushi_name, price FROM sushi where sushi_name = \"".$row3['sushi_name']."\"";
+                    $result4 = mysqli_query($conn, $query4);
+
+                    while($row4 = $result4->fetch_assoc())
+                    {
+                        $total_price += $row4['price']*$pieces_number;
+                    }
+                }
+                
+                echo "<td> $".$total_price."</td>";
+                echo "<td>".$total_items."</td>";
+                echo "</tr>";
+            }
+
+            echo "</tbody>";
+            echo "</table>";
+            echo "</div>";
+        }
+
     ?>
   </div>
 </div>
@@ -490,24 +425,9 @@
 <!-- Pop-up generated -->
 <?php
 
-    if(isset($_GET["success1"]))
-    {
-        echo "<script>buttonLoginFunc();openRandom();</script>";
-    }
-
-    if(isset($_SESSION["logged"])||isset($_GET["error2"])||isset($_GET["success3"]))
+    if(isset($_SESSION["logged"])||isset($_GET["error2"])||isset($_GET["success_order"]))
     {
         echo "<script>openRandom();</script>";
-    }
-
-    if(isset($_GET["error1"])||isset($_GET["error3"])||isset($_GET["error4"]))
-    {
-        echo "<script>buttonRegisterFunc();openRandom();</script>";
-    }
-
-    if(isset($_GET["error5"]))
-    {
-        echo "<script>buttonLoginFunc();openRandom();</script>";
     }
 
 ?>

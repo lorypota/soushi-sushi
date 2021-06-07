@@ -151,8 +151,8 @@
       <h2>Login</h2>
       <div class="form">
         <form action="login-account.php?page=menu" method="post">
-          <input required type="text" placeholder="Username" name="un" />
-          <input required type="password" placeholder="Password" name="pw" />
+          <input required type="text" placeholder="Username" minlength="4" maxlength="32" name="un" />
+          <input required type="password" placeholder="Password" minlength="8" maxlength="32" name="pw" />
           <button type="submit"> Sign in </button>
         </form>
         <a id="registerButton"> <p> Don't have an account? Register </p></a>
@@ -172,11 +172,11 @@
       <h2>Register</h2>
       <div class="form">
         <form action="register-account.php" method="post">
-          <input required type="text" placeholder="Username" name="un" />
-          <input required type="password" placeholder="Password" name="pw1" />
-          <input required type="password" placeholder="Repeat your password" name="pw2" />
-          <input required type="text" placeholder="First Name" name="fn" />
-          <input required type="text" placeholder="Last Name" name="ln" />
+        <input required type="text" placeholder="Username" minlength="4" maxlength="32" name="un" />
+          <input required type="password" placeholder="Password" minlength="8" maxlength="32" name="pw1" />
+          <input required type="password" placeholder="Repeat your password" minlength="8" maxlength="32" name="pw2" />
+          <input required type="text" placeholder="First Name" minlength="2" maxlength="16" name="fn" />
+          <input required type="text" placeholder="Last Name" minlength="2" maxlength="16" name="ln" />
           <button type="submit" > Register </button>
         </form>
       </div>
@@ -369,7 +369,7 @@
           if(($count_outputted_rows%$elements_number == 0 || $count2==1) &&($_GET['list']=="all"||($_GET['list']=="drinks" && $is_drink==1)||($_GET['list']=="specialities" && $is_special==1)||($_GET['list']=="sushi" && $is_drink == 0 && $is_special == 0)))
           {
             echo "<div class=\"table-center-div\">
-                    <table class=\"table-style page".$page_number."\" style=\"\">
+                    <table class=\"table-style page".$page_number."\">
                     <thead>
                       <tr>";
 
@@ -463,6 +463,8 @@
                 echo "</td> <td>";
                 echo "<form action=\"add-to-cart.php\" method=\"post\">";
                 echo    "<input type=\"hidden\" name=\"sushi_name\" value=".str_replace(' ', '_', $sushi_name)."></input>";
+                echo    "<input type=\"hidden\" name=\"list\" value=".$_GET['list']."></input>";
+                echo    "<input type=\"hidden\" name=\"order\" value=".$_GET['order']."></input>";
                 echo    "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input>";
                 echo    "<input type=\"image\" src=\"images/random/add-to-cart.png\" width=\"30px\" height=\"30px\" class=\"cart-image vertical-align-middle\" alt=\"Submit\"></input>";
                 echo "</form>";
@@ -481,6 +483,8 @@
                   echo "<td>";
                     echo "<form action=\"add-to-cart.php\" method=\"post\">";
                       echo "<input type=\"hidden\" name=\"sushi_name\" value=".str_replace(' ', '_', $sushi_name)."></input>";
+                      echo    "<input type=\"hidden\" name=\"list\" value=".$_GET['list']."></input>";
+                      echo    "<input type=\"hidden\" name=\"order\" value=".$_GET['order']."></input>";
                       echo "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input>";
                       echo "<input type=\"image\" src=\"images/random/add-to-cart.png\" width=\"30px\" height=\"30px\" class=\"cart-image vertical-align-middle\" alt=\"Submit\"></input>";
                     echo "</form>";
@@ -551,6 +555,8 @@
                   echo "</td> <td>";
                   echo "<form action=\"add-to-cart.php\" method=\"post\">";
                   echo    "<input type=\"hidden\" name=\"sushi_name\" value=".str_replace(' ', '_', $sushi_name)."></input>";
+                  echo    "<input type=\"hidden\" name=\"list\" value=".$_GET['list']."></input>";
+                  echo    "<input type=\"hidden\" name=\"order\" value=".$_GET['order']."></input>";
                   echo    "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input>";
                   echo    "<input type=\"image\" src=\"images/random/add-to-cart.png\" width=\"30px\" height=\"30px\" class=\"cart-image vertical-align-middle\" alt=\"Submit\"></input>";
                   echo "</form>";
@@ -620,6 +626,8 @@
                   echo "</td> <td>";
                   echo "<form action=\"add-to-cart.php\" method=\"post\">";
                   echo    "<input type=\"hidden\" name=\"sushi_name\" value=".str_replace(' ', '_', $sushi_name)."></input>";
+                  echo    "<input type=\"hidden\" name=\"list\" value=".$_GET['list']."></input>";
+                  echo    "<input type=\"hidden\" name=\"order\" value=".$_GET['order']."></input>";
                   echo    "<input type=\"number\" name=\"cart_number\" min=\"1\" value =\"1\" style=\"width: 40px;\"></input>";
                   echo    "<input type=\"image\" src=\"images/random/add-to-cart.png\" width=\"30px\" height=\"30px\" class=\"cart-image vertical-align-middle\" alt=\"Submit\"></input>";
                   echo "</form>";

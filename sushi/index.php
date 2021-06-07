@@ -147,8 +147,8 @@
       <h2>Login</h2>
       <div class="form">
         <form action="login-account.php?page=index" method="post">
-          <input required type="text" placeholder="Username" name="un" />
-          <input required type="password" placeholder="Password" name="pw" />
+          <input required type="text" placeholder="Username" minlength="4" maxlength="32" name="un" />
+          <input required type="password" placeholder="Password" minlength="8" maxlength="32" name="pw" />
           <button type="submit"> Sign in </button>
         </form>
         <a id="registerButton"> <p> Don't have an account? Register </p></a>
@@ -168,11 +168,11 @@
       <h2>Register</h2>
       <div class="form">
         <form action="register-account.php" method="post">
-          <input required type="text" placeholder="Username" name="un" />
-          <input required type="password" placeholder="Password" name="pw1" />
-          <input required type="password" placeholder="Repeat your password" name="pw2" />
-          <input required type="text" placeholder="First Name" name="fn" />
-          <input required type="text" placeholder="Last Name" name="ln" />
+          <input required type="text" placeholder="Username" minlength="4" maxlength="32" name="un" />
+          <input required type="password" placeholder="Password" minlength="8" maxlength="32" name="pw1" />
+          <input required type="password" placeholder="Repeat your password" minlength="8" maxlength="32" name="pw2" />
+          <input required type="text" placeholder="First Name" minlength="2" maxlength="16" name="fn" />
+          <input required type="text" placeholder="Last Name" minlength="2" maxlength="16" name="ln" />
           <button type="submit" > Register </button>
         </form>
       </div>
