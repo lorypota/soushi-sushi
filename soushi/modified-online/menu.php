@@ -746,7 +746,7 @@
       <p>Phone: +39 345 826 4304</p>
       <p>Email: lorenzokaide@gmail.com</p>
     </div>
-    <div class="text-center" style="margin-left: 45%; margin-right:45%;">
+    <div class="text-center" style="margin-left: 40%; margin-right:40%;">
       <h3>Working hours:</h3>
       <p>Monday to Friday</p>
       <p>12:00-10:00 PM</p>
