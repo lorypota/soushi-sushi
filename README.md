@@ -30,7 +30,7 @@ Index:
 In order for the website to cover all of the needed functionalities, it is good to use a template for conceptual design. Conceptual design covers the first phase of software development where the requirements of the final product are established. Subsequent phases involve logical and physical design; logical design consists of translating the conceptual schema into a logical schema, while physical design involves the use of a number of tools, such as HTML, CSS, JS, PHP, and MySQL.
 The requirements analysis phase is very important as it allows for the calculation of key costs, time, and scope.
 
-![requirements](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/requirements_triangle.png))
+![requirements](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/requirements_triangle.png)
 
 1.2 Generalities
 Site virtues:
