@@ -163,19 +163,19 @@ Through the use of the appropriate buttons, it is possible to move between pages
 The menu allows the user to select "only sushi", "specialty" or "drinks" and order them by name or price. I used a table to show all the dishes and linking attributes.
 ![menu1](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/menu1.png)
 ![menu2](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/menu2.png)
-![menu3](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/menu3.png))
+![menu3](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/menu3.png)
 
 
 4.3 Shopping cart
 The shopping cart allows the user to check added dishes, calculating the total price and the number of added dishes.
 It also allows the user to see past orders.
-![shoppingcart1](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/shoppingcart1.png))
-![shoppingcart2](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/shoppingcart2.png))
+![shoppingcart1](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/shoppingcart1.png)
+![shoppingcart2](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/shoppingcart2.png)
 
 4.4 Registration and login
 Through the appropriates form, the user can register and login onto the web-site.
-![register](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/register.png))
-![login](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/login.png))
+![register](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/register.png)
+![login](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/login.png)
 
 
 
