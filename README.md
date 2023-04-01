@@ -1,5 +1,5 @@
-![logo1](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo5.png?raw=true)
-![logo2](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo6.png?raw=true)
+![logo1](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/random/logo5.png)
+![logo2](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/random/logo6.png)
 
 "Soushi sushi" website - Restaurant website
 I made this website as a project for my last year of highschool, I was relatively new to web programming and this took me about 1 month of development.
