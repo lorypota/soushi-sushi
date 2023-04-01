@@ -1,5 +1,5 @@
-![logo1](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/random/logo5.png)
-![logo2](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/random/logo6.png)
+![logo1](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/logo1.png)
+![logo2](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/logo2.png)
 
 "Soushi sushi" website - Restaurant website
 I made this website as a project for my last year of highschool, I was relatively new to web programming and this took me about 1 month of development.
@@ -29,7 +29,7 @@ Index:
 1.1 Introduction
 In order for the website to cover all of the needed functionalities, it is good to use a template for conceptual design. Conceptual design covers the first phase of software development where the requirements of the final product are established. Subsequent phases involve logical and physical design; logical design consists of translating the conceptual schema into a logical schema, while physical design involves the use of a number of tools, such as HTML, CSS, JS, PHP, and MySQL.
 The requirements analysis phase is very important as it allows for the calculation of key costs, time, and scope.
-
+![requirements](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/requirements_triangle.png))
 
 1.2 Generalities
 Site virtues:
@@ -126,7 +126,7 @@ The page regarding the shopping cart must show the user:
 2. Database design and modeling
 
 2.1 Logical scheme
-![database](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo6.png?raw=true)
+![database](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/database_modeling.png)
  
  
 2.2 Database creation queries
@@ -143,7 +143,7 @@ Ordered queries:
 3. Website design and modeling
 To design my website I used different programming languages, more specifically: HTML, CSS, JavaScript, PHP and MySQL.
 I utilized a color palette to design the website in a more pleasant way, with the usage of the website https://coolors.co, this is the palette i used:
-![color palette](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo6.png?raw=true)
+![color palette](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/palette.png)
 
 
 
@@ -152,29 +152,29 @@ I utilized a color palette to design the website in a more pleasant way, with th
 4.1 Homepage
 The homepage is divided into 4 sections: "menu," "about us," "soushi quality," and "where are we?".
 Through the use of the appropriate buttons, it is possible to move between pages.
-![homepage1](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo6.png?raw=true)
-![homepage2](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo6.png?raw=true)
-![homepage3](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo6.png?raw=true)
-![homepage4](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo6.png?raw=true)
+![homepage1](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/homepage1.png)
+![homepage2](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/homepage2.png)
+![homepage3](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/homepage3.png)
+![homepage4](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/homepage4.png)
 
 
 4.2 Menu
 The menu allows the user to select "only sushi", "specialty" or "drinks" and order them by name or price. I used a table to show all the dishes and linking attributes.
-![menu1](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo6.png?raw=true)
-![menu2](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo6.png?raw=true)
-![menu3](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo6.png?raw=true)
+![menu1](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/menu1.png)
+![menu2](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/menu2.png)
+![menu3](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/menu3.png))
 
 
 4.3 Shopping cart
 The shopping cart allows the user to check added dishes, calculating the total price and the number of added dishes.
 It also allows the user to see past orders.
-![shoppingcart1](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo6.png?raw=true)
-![shoppingcart2](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo6.png?raw=true)
+![shoppingcart1](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/shoppingcart1.png))
+![shoppingcart2](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/shoppingcart2.png))
 
 4.4 Registration and login
 Through the appropriates form, the user can register and login onto the web-site.
-![register](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo6.png?raw=true)
-![login](https://github.com/lorypota/soushi-sushi/blob/master/soushi-sushi/soushi/images/random/logo6.png?raw=true)
+![register](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/register.png))
+![login](https://raw.githubusercontent.com/lorypota/soushi-sushi/master/soushi/images/documentation/login.png))
 
 
 
